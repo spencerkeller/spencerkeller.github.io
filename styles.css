@@ -1,0 +1,115 @@
+/* elements */
+body {
+  background-color: whitesmoke;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: darkslategrey;
+  font-family: courier;
+  border: 2px dashed silver;
+  padding-left: 24px;
+  border-width: 100%;
+}
+h2 {
+  font-size: 120%;
+}
+p {
+  color: black;
+  font-family: courier;
+  padding-left: 24px;
+}
+
+hr {
+	border-top: whitesmoke;
+	opacity: 0.0;
+}
+
+/* links */
+a:link {
+	color: lightslategrey;
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+a:visited {
+	background-color: transparent;
+	color: dimgrey;
+	text-decoration: none;
+}
+
+a:hover {
+  color: slategrey;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: darkslategrey;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* sidebar nav */
+.sidebar {
+	border: 2px solid whitesmoke;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	margin: 0px;
+	padding: 8px;
+	width: 200px;
+	background-color: whitesmoke;
+	position: fixed;
+	height: auto;
+	overflow: auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* sidebar links */
+.sidebar a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 8px;
+	text-decoration: none;
+}
+
+/* active link */
+.sidebar a.active {
+	background-color = silver;
+	color: darkslategrey;
+}
+
+/* hover link */
+.sidebar a:hover:not(.active) {
+	border-radius: 8px;
+	background-color: darkslategrey;
+	color: silver;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* page - left margin matches sidebar width */
+div.content {
+	border: 2px solid silver;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 10%10%;
+	border-bottom-left-radius: 8px;
+	margin-left: 232px;
+	padding: 8px 16px;
+	height: auto;
+}
+
+/* stack sidebar vertically if screen size < 700px */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: auto;
+    height: 100%;
+    position: relative;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	margin-bottom: 12px;
+  }
+  .sidebar a {text-align: center;float: none;}
+  div.content {margin-left: 0;}
+}

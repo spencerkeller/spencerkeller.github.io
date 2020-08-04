@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Spencer Keller" />
+  <meta name="dcterms.date" content="2019-03-13" />
+  <title>GEOG597 Final Report</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Lab5_slide_example_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="Lab5_slide_example_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">GEOG597 Final Report</h1>
+    <h2 class="author">Spencer Keller</h2>
+    <h3 class="date">March 13, 2019</h3>
+</section>
+
+<section><section id="spatial-hedonic-regression" class="titleslide slide level1"><h1>Spatial Hedonic Regression</h1></section><section id="exploring-total-value-of-householdsproperty" class="slide level2">
+<h2>Exploring Total Value of Households/Property</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">spplot</span>(HH_final, <span class="st">&#39;TOTALVAL&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;Household Total Value&#39;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-3-1.png" width="768" /></p>
+</section><section id="does-the-dependent-variable-exhibit-spatial-autocorrelation" class="slide level2">
+<h2>Does the dependent variable exhibit spatial autocorrelation?</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Moran&#39;s I of dependent variable</span>
+<span class="kw">moran.mc</span>(HH_final<span class="op">$</span>TOTALVAL, <span class="dt">listw =</span> HH_w, <span class="dt">nsim =</span> <span class="dv">999</span>, <span class="dt">na.action =</span> na.omit)</code></pre></div>
+<pre><code>## 
+##  Monte-Carlo simulation of Moran I
+## 
+## data:  HH_final$TOTALVAL 
+## weights: HH_w  
+## number of simulations + 1: 1000 
+## 
+## statistic = 0.4401, observed rank = 1000, p-value = 0.001
+## alternative hypothesis: greater</code></pre>
+<p>-It would appear so ..</p>
+</section><section id="how-can-we-explain-total-property-value" class="slide level2">
+<h2>How can we explain total property value?</h2>
+<ol type="1">
+<li>PROP_CODE == ‘131’ (dummy)</li>
+<li>TAXCODE == ‘296’ (dummy)</li>
+<li>BLDGSQFT</li>
+<li>SITEAREA</li>
+<li>BLDGAGE</li>
+<li>ZIP == ‘97305’|‘97201’|‘97210’|‘97212’|‘97213’|‘97219’|‘97229’ (dummy)</li>
+<li>MHI</li>
+<li>lag_zip</li>
+<li>lag_ter (lag of distance to roadnetwork type == ‘TER’)</li>
+<li>lag_fwy</li>
+<li>lag_hwy</li>
+</ol>
+</section><section id="ols-model" class="slide level2">
+<h2>OLS Model</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(TOTALVAL <span class="op">~</span><span class="st"> </span>PRCODE<span class="op">+</span><span class="st"> </span>TAXCODE_<span class="op">+</span><span class="st"> </span>BLDGSQFT<span class="op">+</span><span class="st"> </span>SITEAREA<span class="op">+</span><span class="st"> </span>BLDGAGE<span class="op">+</span><span class="st">  </span>ZIP<span class="op">+</span><span class="st"> </span>MHI<span class="op">+</span><span class="st"> </span>lag_zip<span class="op">+</span><span class="st"> </span>lag_ter<span class="op">+</span><span class="st"> </span>lag_fwy<span class="op">+</span><span class="st"> </span>lag_hwy, <span class="dt">data =</span> HH_final))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = TOTALVAL ~ PRCODE + TAXCODE_ + BLDGSQFT + SITEAREA + 
+##     BLDGAGE + ZIP + MHI + lag_zip + lag_ter + lag_fwy + lag_hwy, 
+##     data = HH_final)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -434201  -64589   -6868   57486 1115373 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -1.385e+04  1.372e+04  -1.010 0.312826    
+## PRCODE      -7.382e+04  6.315e+04  -1.169 0.242530    
+## TAXCODE_     2.257e+05  1.095e+05   2.061 0.039487 *  
+## BLDGSQFT     1.827e+02  3.682e+00  49.610  &lt; 2e-16 ***
+## SITEAREA     1.254e+00  3.745e-01   3.348 0.000831 ***
+## BLDGAGE      1.549e+03  8.768e+01  17.663  &lt; 2e-16 ***
+## ZIP          7.145e+04  8.427e+03   8.479  &lt; 2e-16 ***
+## MHI          4.245e-01  8.222e-02   5.163 2.69e-07 ***
+## lag_zip     -3.762e+04  1.278e+04  -2.944 0.003276 ** 
+## lag_ter     -1.336e+01  2.417e+00  -5.527 3.72e-08 ***
+## lag_fwy      1.282e+00  1.861e+00   0.689 0.490918    
+## lag_hwy      8.355e+00  4.448e+00   1.878 0.060484 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 109200 on 1837 degrees of freedom
+## Multiple R-squared:  0.6943, Adjusted R-squared:  0.6925 
+## F-statistic: 379.4 on 11 and 1837 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>-Not awful ..</p>
+</section><section id="plot-residuals" class="slide level2">
+<h2>Plot residuals</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(olsmod, <span class="dv">3</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-6-1.png" width="768" /></p>
+</section><section id="ols-rmse" class="slide level2">
+<h2>OLS RMSE</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmse_ols</code></pre></div>
+<pre><code>## [1] 108808.4</code></pre>
+<p>Give or take $108,808 aint bad</p>
+</section><section id="is-our-variance-inflation-under-control" class="slide level2">
+<h2>Is our variance inflation under control?</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">car<span class="op">::</span><span class="kw">vif</span>(olsmod)</code></pre></div>
+<pre><code>##   PRCODE TAXCODE_ BLDGSQFT SITEAREA  BLDGAGE      ZIP      MHI  lag_zip 
+## 1.002244 1.005886 1.227663 1.064743 1.048301 2.019762 1.323101 2.030956 
+##  lag_ter  lag_fwy  lag_hwy 
+## 1.230455 1.132458 1.217701</code></pre>
+<ul>
+<li>You better believe it</li>
+</ul>
+</section><section id="lets-take-this-further-.." class="slide level2">
+<h2>Let’s take this further ..</h2>
+<p>The Lagrange Multiplier will lead the way!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm.LMtests</span>(<span class="dt">model =</span> olsmod, <span class="dt">listw =</span> HH_w, <span class="dt">test =</span> <span class="st">&quot;all&quot;</span>))</code></pre></div>
+<pre><code>##  Lagrange multiplier diagnostics for spatial dependence
+## data:  
+## model: lm(formula = TOTALVAL ~ PRCODE + TAXCODE_ + BLDGSQFT +
+## SITEAREA + BLDGAGE + ZIP + MHI + lag_zip + lag_ter + lag_fwy +
+## lag_hwy, data = HH_final)
+## weights: HH_w
+##  
+##        statistic parameter   p.value    
+## LMerr    1129.50         1 &lt; 2.2e-16 ***
+## LMlag     943.25         1 &lt; 2.2e-16 ***
+## RLMerr    450.22         1 &lt; 2.2e-16 ***
+## RLMlag    263.97         1 &lt; 2.2e-16 ***
+## SARMA    1393.47         2 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<ul>
+<li>All significant, but the Spatial Error model sticks out so we’ll start there</li>
+</ul>
+</section><section id="spatial-error-model" class="slide level2">
+<h2>Spatial Error Model</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod_err, <span class="dt">Nagelkerke =</span> T)</code></pre></div>
+<pre><code>## 
+## Call:
+## spdep::errorsarlm(formula = TOTALVAL ~ PRCODE + TAXCODE_ + BLDGSQFT + 
+##     SITEAREA + BLDGAGE + ZIP + MHI + lag_zip + lag_fwy + lag_ter + 
+##     lag_hwy, data = HH_final, listw = HH_w, na.action = na.omit, 
+##     tol.solve = 1e-10)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -368222.2  -49508.9   -2762.9   39522.6 1199799.8 
+## 
+## Type: error 
+## Coefficients: (asymptotic standard errors) 
+##                Estimate  Std. Error z value  Pr(&gt;|z|)
+## (Intercept)  1.1988e+05  3.4108e+04  3.5147 0.0004403
+## PRCODE      -8.3410e+04  5.2169e+04 -1.5988 0.1098561
+## TAXCODE_     2.3388e+05  8.9653e+04  2.6087 0.0090882
+## BLDGSQFT     1.6313e+02  3.1816e+00 51.2737 &lt; 2.2e-16
+## SITEAREA     2.9617e+00  3.5549e-01  8.3312 &lt; 2.2e-16
+## BLDGAGE      6.9490e+02  8.4514e+01  8.2222  2.22e-16
+## ZIP         -1.9738e+03  9.5697e+03 -0.2063 0.8365928
+## MHI          1.2524e-01  1.0159e-01  1.2329 0.2176248
+## lag_zip      2.0692e+04  2.9864e+04  0.6929 0.4883987
+## lag_fwy      2.6060e+00  7.1356e+00  0.3652 0.7149497
+## lag_ter     -2.3867e+01  9.2484e+00 -2.5806 0.0098623
+## lag_hwy      6.1809e+00  1.3362e+01  0.4626 0.6436582
+## 
+## Lambda: 0.82838, LR test value: 540, p-value: &lt; 2.22e-16
+## Approximate (numerical Hessian) standard error: 0.022174
+##     z-value: 37.358, p-value: &lt; 2.22e-16
+## Wald statistic: 1395.6, p-value: &lt; 2.22e-16
+## 
+## Log likelihood: -23797.11 for error model
+## ML residual variance (sigma squared): 8384700000, (sigma: 91568)
+## Nagelkerke pseudo-R-squared: 0.77175 
+## Number of observations: 1849 
+## Number of parameters estimated: 14 
+## AIC: 47622, (AIC for lm: 48160)</code></pre>
+<ul>
+<li>NKR2: 77.175</li>
+</ul>
+</section><section id="spatial-error-rmse" class="slide level2">
+<h2>Spatial Error RMSE</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">moderr_RMSE</code></pre></div>
+<pre><code>## [1] 91568.11</code></pre>
+</section><section id="spatial-lag-model" class="slide level2">
+<h2>Spatial Lag Model?</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod_lag, <span class="dt">Nagelkerke =</span> T)</code></pre></div>
+<pre><code>## 
+## Call:spdep::lagsarlm(formula = TOTALVAL ~ PRCODE + TAXCODE_ + BLDGSQFT + 
+##     SITEAREA + BLDGAGE + ZIP + MHI + lag_zip + lag_fwy + lag_ter + 
+##     lag_hwy, data = HH_final, listw = HH_w, na.action = na.omit, 
+##     tol.solve = 1e-30)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -376472.2  -50866.9   -3288.1   43723.4 1205155.7 
+## 
+## Type: lag 
+## Coefficients: (asymptotic standard errors) 
+##                Estimate  Std. Error  z value  Pr(&gt;|z|)
+## (Intercept) -1.6633e+05  1.3233e+04 -12.5697 &lt; 2.2e-16
+## PRCODE      -1.1405e+05  5.4005e+04  -2.1118   0.03470
+## TAXCODE_     2.0888e+05  9.3606e+04   2.2315   0.02565
+## BLDGSQFT     1.6334e+02  3.2401e+00  50.4134 &lt; 2.2e-16
+## SITEAREA     1.7505e+00  3.2138e-01   5.4470 5.122e-08
+## BLDGAGE      1.0697e+03  7.5251e+01  14.2148 &lt; 2.2e-16
+## ZIP         -4.7235e+02  7.6200e+03  -0.0620   0.95057
+## MHI         -6.5194e-02  7.3626e-02  -0.8855   0.37590
+## lag_zip     -6.5300e+03  1.0969e+04  -0.5953   0.55164
+## lag_fwy     -1.1786e+00  1.5906e+00  -0.7410   0.45871
+## lag_ter      3.0225e-02  2.1282e+00   0.0142   0.98867
+## lag_hwy      3.4545e-01  3.8114e+00   0.0906   0.92778
+## 
+## Rho: 0.5747, LR test value: 533.87, p-value: &lt; 2.22e-16
+## Asymptotic standard error: 0.021834
+##     z-value: 26.321, p-value: &lt; 2.22e-16
+## Wald statistic: 692.81, p-value: &lt; 2.22e-16
+## 
+## Log likelihood: -23800.17 for lag model
+## ML residual variance (sigma squared): 8.7e+09, (sigma: 93274)
+## Nagelkerke pseudo-R-squared: 0.771 
+## Number of observations: 1849 
+## Number of parameters estimated: 14 
+## AIC: 47628, (AIC for lm: 48160)
+## LM test for residual autocorrelation
+## test value: 19.162, p-value: 1.2008e-05</code></pre>
+<ul>
+<li>NKR2: 77.1</li>
+</ul>
+</section><section id="spatial-lag-rmse" class="slide level2">
+<h2>Spatial Lag RMSE</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lag_RMSE</code></pre></div>
+<pre><code>## [1] 97860.32</code></pre>
+</section><section id="durbin" class="slide level2">
+<h2>Durbin?!</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod_durbin, <span class="dt">Nagelkerke =</span> T)</code></pre></div>
+<pre><code>## 
+## Call:spdep::lagsarlm(formula = TOTALVAL ~ PRCODE + TAXCODE_ + BLDGSQFT + 
+##     SITEAREA + BLDGAGE + ZIP + MHI + lag_zip + lag_fwy + lag_ter + 
+##     lag_hwy, data = HH_final, listw = HH_w, na.action = na.omit, 
+##     type = &quot;Durbin&quot;, tol.solve = 1e-30)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -381544.12  -48629.01    -857.86   40712.89 1164590.44 
+## 
+## Type: mixed 
+## Coefficients: (asymptotic standard errors) 
+##                 Estimate  Std. Error z value  Pr(&gt;|z|)
+## (Intercept)  -1.9279e+05  2.5844e+04 -7.4597 8.682e-14
+## PRCODE       -1.2848e+05  5.2820e+04 -2.4325 0.0149966
+## TAXCODE_      2.3885e+05  9.1557e+04  2.6088 0.0090866
+## BLDGSQFT      1.6459e+02  3.1592e+00 52.1002 &lt; 2.2e-16
+## SITEAREA      3.1644e+00  3.5653e-01  8.8755 &lt; 2.2e-16
+## BLDGAGE       7.0230e+02  8.4040e+01  8.3567 &lt; 2.2e-16
+## ZIP          -7.9195e+03  9.7764e+03 -0.8101 0.4179043
+## MHI           7.8607e-02  1.0502e-01  0.7485 0.4541659
+## lag_zip      -2.0620e+04  5.3177e+04 -0.3878 0.6981943
+## lag_fwy      -5.3965e+01  2.5345e+01 -2.1292 0.0332339
+## lag_ter      -3.9101e+01  2.4837e+01 -1.5743 0.1154155
+## lag_hwy       2.3341e+01  2.8130e+01  0.8297 0.4066915
+## lag.PRCODE   -6.7154e+05  2.6176e+05 -2.5655 0.0103036
+## lag.TAXCODE_  2.2093e+04  3.3714e+05  0.0655 0.9477503
+## lag.BLDGSQFT -3.0438e+01  1.4850e+01 -2.0497 0.0403950
+## lag.SITEAREA -1.9004e+00  5.5037e-01 -3.4530 0.0005543
+## lag.BLDGAGE   1.2440e+03  2.2960e+02  5.4182 6.019e-08
+## lag.ZIP       3.4858e+04  1.8135e+04  1.9221 0.0545893
+## lag.MHI      -1.6543e-01  1.6583e-01 -0.9976 0.3184563
+## lag.lag_zip  -1.1046e+04  5.6270e+04 -0.1963 0.8443666
+## lag.lag_fwy   5.7751e+01  2.6425e+01  2.1855 0.0288505
+## lag.lag_ter   4.1454e+01  2.5626e+01  1.6177 0.1057322
+## lag.lag_hwy  -2.7304e+01  3.1107e+01 -0.8777 0.3800822
+## 
+## Rho: 0.58508, LR test value: 171.52, p-value: &lt; 2.22e-16
+## Asymptotic standard error: 0.041383
+##     z-value: 14.138, p-value: &lt; 2.22e-16
+## Wald statistic: 199.89, p-value: &lt; 2.22e-16
+## 
+## Log likelihood: -23741.59 for mixed model
+## ML residual variance (sigma squared): 8158700000, (sigma: 90325)
+## Nagelkerke pseudo-R-squared: 0.78506 
+## Number of observations: 1849 
+## Number of parameters estimated: 25 
+## AIC: 47533, (AIC for lm: 47703)
+## LM test for residual autocorrelation
+## test value: 6.9019, p-value: 0.0086102</code></pre>
+<p>-NKR2: 78.5</p>
+</section><section id="durbin-rmse" class="slide level2">
+<h2>Durbin RMSE</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">durbin_rmse</code></pre></div>
+<pre><code>## [1] 90325.38</code></pre>
+</section><section id="comparing-models" class="slide level2">
+<h2>Comparing models</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(mod_err, mod_lag, mod_durbin)</code></pre></div>
+<pre><code>##            Model df   AIC logLik Test L.Ratio p-value
+## mod_err        1 14 47622 -23797    1                
+## mod_lag        2 14 47628 -23800    1                
+## mod_durbin     3 25 47533 -23742    2  117.17       0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Reduce</span>(rbind, <span class="kw">lapply</span>(<span class="kw">list</span>(mod_err,mod_lag,mod_durbin), <span class="cf">function</span>(i)<span class="kw">data.frame</span>(<span class="dt">model =</span> i<span class="op">$</span>type, <span class="st">&#39;NK R2&#39;</span> =<span class="st"> </span><span class="kw">summary</span>(i, <span class="dt">Nagelkerke =</span> T)<span class="op">$</span>NK)))</code></pre></div>
+<pre><code>##   model     NK.R2
+## 1 error 0.7717538
+## 2   lag 0.7709961
+## 3 mixed 0.7850572</code></pre>
+<p>-Durbin has slightly better explanatory power</p>
+</section><section id="did-the-spatial-error-model-remove-the-spatial-autocorrelation" class="slide level2">
+<h2>Did the Spatial Error Model remove the spatial autocorrelation?</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">moran.mc</span>(mod_err<span class="op">$</span>residuals, <span class="dt">listw =</span> HHw_sub, <span class="dt">nsim =</span> <span class="dv">999</span>, <span class="dt">na.action =</span> na.omit)</code></pre></div>
+<pre><code>## 
+##  Monte-Carlo simulation of Moran I
+## 
+## data:  mod_err$residuals 
+## weights: HHw_sub  
+## number of simulations + 1: 1000 
+## 
+## statistic = -0.016944, observed rank = 6, p-value = 0.994
+## alternative hypothesis: greater</code></pre>
+<ul>
+<li>Yep!</li>
+</ul>
+</section><section id="lets-map-those-residuals-because-..-geography" class="slide level2">
+<h2>Let’s map those residuals because .. geography</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">spplot</span>(HH_final, <span class="st">&#39;resid_err&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;Spatial Error Residuals&#39;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-19-1.png" width="768" /></p>
+</section><section id="section" class="slide level2">
+<h2></h2>
+<p><img src="https://i.imgur.com/mzwCggB.gif" /></p>
+</section></section>
+<section><section id="geographic-weighted-regression" class="titleslide slide level1"><h1>Geographic Weighted Regression</h1></section><section id="defining-a-formula" class="slide level2">
+<h2>Defining a formula</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span>TOTALVAL <span class="op">~</span><span class="st"> </span>PRCODE<span class="op">+</span><span class="st"> </span>TAXCODE_<span class="op">+</span><span class="st"> </span>BLDGSQFT<span class="op">+</span><span class="st"> </span>SITEAREA<span class="op">+</span><span class="st"> </span>BLDGAGE<span class="op">+</span><span class="st"> </span>ZIP<span class="op">+</span><span class="st"> </span>MHI<span class="op">+</span><span class="st"> </span>lag_zip<span class="op">+</span><span class="st"> </span>lag_fwy<span class="op">+</span><span class="st"> </span>lag_ter<span class="op">+</span><span class="st"> </span>lag_hwy</code></pre></div>
+</section><section id="setting-bandwidth" class="slide level2">
+<h2>Setting bandwidth</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gwr_bandw &lt;-<span class="st"> </span><span class="kw">ggwr.sel</span>(
+  <span class="dt">formula =</span> f,
+  <span class="dt">data =</span> HH_final,
+  <span class="dt">adapt =</span> T,
+  <span class="dt">longlat =</span> F
+)</code></pre></div>
+</section><section id="running-the-model" class="slide level2">
+<h2>Running the model</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod_gwr &lt;-<span class="st"> </span><span class="kw">gwr</span>(
+  <span class="dt">formula =</span> f,
+  <span class="dt">data =</span> HH_gwr,
+  <span class="dt">adapt =</span> gwr_bandw,
+  <span class="dt">longlat =</span> F,
+  <span class="dt">hatmatrix =</span> T
+)</code></pre></div>
+</section><section id="model-results" class="slide level2">
+<h2>Model results …</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod_gwr</code></pre></div>
+<pre><code>## Call:
+## gwr(formula = f, data = HH_gwr, adapt = gwr_bandw, hatmatrix = T, 
+##     longlat = F)
+## Kernel function: gwr.Gauss 
+## Adaptive quantile: 0.009747059 (about 18 of 1849 data points)
+## Summary of GWR coefficient estimates at data points:
+##                     Min.     1st Qu.      Median     3rd Qu.        Max.
+## X.Intercept. -1.1932e+06  1.1796e+04  1.4217e+05  2.5919e+05  4.2430e+06
+## PRCODE       -1.0830e+06 -2.0039e+05 -8.7138e+04  2.0798e+04  1.2920e+06
+## TAXCODE_     -3.4421e+06  6.1146e+02  2.3919e+05  3.8081e+05  2.0897e+06
+## BLDGSQFT      5.0567e+01  1.0666e+02  1.3864e+02  1.7575e+02  2.4766e+02
+## SITEAREA     -7.2228e+00  3.5998e+00  6.2621e+00  1.2880e+01  9.7702e+01
+## BLDGAGE      -8.4840e+03  7.1740e+01  3.8782e+02  7.7599e+02  2.3101e+03
+## ZIP          -4.6747e+05 -3.5878e+04  3.1024e+04  9.8984e+04  8.4440e+05
+## MHI          -4.3079e+00 -5.1251e-01 -8.5275e-02  2.6560e-01  1.9663e+00
+## lag_zip      -1.1784e+07 -1.2183e+05  3.7934e+04  1.5251e+05  7.4750e+06
+## lag_fwy      -1.9138e+02 -2.0087e+01  9.8225e+00  4.3552e+01  3.9463e+02
+## lag_ter      -1.2532e+03 -5.5724e+01 -1.1352e+01  2.4441e+01  3.6656e+02
+## lag_hwy      -1.4683e+03 -3.8386e+01 -1.8829e+00  4.1586e+01  3.9726e+02
+##                   Global
+## X.Intercept. -13854.3184
+## PRCODE       -73823.1132
+## TAXCODE_     225657.9131
+## BLDGSQFT        182.6549
+## SITEAREA          1.2536
+## BLDGAGE        1548.6339
+## ZIP           71451.6009
+## MHI               0.4245
+## lag_zip      -37623.2576
+## lag_fwy           1.2824
+## lag_ter         -13.3567
+## lag_hwy           8.3548
+## Number of data points: 1849 
+## Effective number of parameters (residual: 2traceS - traceS&#39;S): 414.3879 
+## Effective degrees of freedom (residual: 2traceS - traceS&#39;S): 1434.612 
+## Sigma (residual: 2traceS - traceS&#39;S): 71920.89 
+## Effective number of parameters (model: traceS): 311.6066 
+## Effective degrees of freedom (model: traceS): 1537.393 
+## Sigma (model: traceS): 69475.19 
+## Sigma (ML): 63351.05 
+## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 46886.89 
+## AIC (GWR p. 96, eq. 4.22): 46445.58 
+## Residual sum of squares: 7.420695e+12 
+## Quasi-global R2: 0.8963853</code></pre>
+<ul>
+<li>Quasi-Global R2: 89.63</li>
+</ul>
+</section><section id="neat-patterns-terrace-dwellers" class="slide level2">
+<h2>Neat patterns: Terrace dwellers</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">spplot</span>(HH_gwr, <span class="st">&#39;beta_lter&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;Lag of TER&#39;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-24-1.png" width="768" /></p>
+</section><section id="neat-patterns-zip-dummy-variable" class="slide level2">
+<h2>Neat patterns: Zip dummy variable</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">spplot</span>(HH_gwr, <span class="st">&#39;beta_zip&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;ZIP (dummy)&#39;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-25-1.png" width="768" /></p>
+</section><section id="neat-patterns-local-r2" class="slide level2">
+<h2>Neat patterns: Local R2</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">spplot</span>(HH_gwr, <span class="st">&#39;beta_lr2&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;Local R2&#39;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-26-1.png" width="768" /></p>
+</section><section id="neat-patterns-residuals" class="slide level2">
+<h2>Neat patterns: Residuals</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">spplot</span>(HH_gwr, <span class="st">&#39;beta_err&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;Residuals&#39;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-27-1.png" width="768" /></p>
+</section><section id="gwr-rmse" class="slide level2">
+<h2>GWR RMSE</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmse_gwr</code></pre></div>
+<pre><code>## [1] 63351.05</code></pre>
+<ul>
+<li>Quite a bit better than our other RMSE!</li>
+</ul>
+</section></section>
+<section><section id="machine-learning" class="titleslide slide level1"><h1>Machine Learning</h1></section><section id="scoping-out-powerlines-from-lidar-imagery" class="slide level2">
+<h2>Scoping out powerlines from lidar imagery</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(dhm, <span class="dt">col =</span> bw)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-29-1.png" width="768" /></p>
+</section><section id="just-a-handful-of-predictors" class="slide level2">
+<h2>Just a handful of predictors …</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dhm_stack &lt;-<span class="st"> </span><span class="kw">stack</span>(dhm, dhm_3x3, dhm_3x3max, dhm_3x3min, dhm_5x5, dhm_5x5max, dhm_5x5min, dhm_7x7, dhm_7x7max, dhm_7x7min, dhm_9x9, dhm_9x9max, dhm_9x9min,
+                   dhm_cir3mean, dhm_cir3min, dhm_cir3max, dhm_cir5mean, dhm_cir5min, dhm_cir5max, dhm_cir7mean, dhm_cir7min, dhm_cir7max, dhm_cir9mean,
+                   dhm_cir9min, dhm_cir9max, dhm_gauss2, dhm_gauss3, dhm_gauss4, slope, slp_cir3mean, slp_gauss2, aspect, asp_cir3mean, asp_gauss2,
+                   dhm_tri3, dhm_tri5, dhm_tri7, slp_tri1x3, slp_tri3x1, slp_tri3x3, slp_tri3x5, slp_tri5, slp_tri7, asp_tri1x3, asp_tri3x1, asp_tri3x5,
+                   asp_tri5, asp_tri7, dhm_tpi3x1F, dhm_tpi3x1T, dhm_tpi3x3F, dhm_tpi3x3T, dhm_tpi5x1F, dhm_tpi5x1T, dhm_tpi5x5F, dhm_tpi5x5T,
+                   dhm_tpi7x1F, dhm_tpi7x1T, dhm_tpi7x7F, dhm_tpi7x7T, slp_tpi3x1F, slp_tpi3x1T, slp_tpi3x3F, slp_tpi3x3T, asp_tpi3x1F, asp_tpi3x1T,
+                   asp_tpi3x3F, asp_tpi3x3T, dhm_rgh3, slp_rgh, asp_rgh)</code></pre></div>
+</section><section id="random-forest-with-7030-split" class="slide level2">
+<h2>Random Forest with 70/30 split</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">31337</span>) <span class="co">#yikes</span>
+rf_mod &lt;-<span class="st"> </span><span class="kw">randomForest</span>(
+  <span class="dt">formula =</span> <span class="kw">as.factor</span>(class)<span class="op">~</span>.,
+  <span class="dt">data =</span> dat_train,
+  <span class="dt">keep.inbag =</span> <span class="ot">TRUE</span>,
+  <span class="dt">ntree =</span> <span class="dv">40</span>, <span class="co">#Pruned the heck outta the default 500</span>
+  <span class="dt">importance =</span> T
+)
+rf_mod</code></pre></div>
+<pre><code>## 
+## Call:
+##  randomForest(formula = as.factor(class) ~ ., data = dat_train,      keep.inbag = TRUE, ntree = 40, importance = T) 
+##                Type of random forest: classification
+##                      Number of trees: 40
+## No. of variables tried at each split: 8
+## 
+##         OOB estimate of  error rate: 3.18%
+## Confusion matrix:
+##      0    1 class.error
+## 0 2519   36  0.01409002
+## 1   81 1038  0.07238606</code></pre>
+<ul>
+<li>OOB error estimate: 3.18%</li>
+</ul>
+</section><section id="correct" class="slide level2">
+<h2>% Correct</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(pred_accuracy)</code></pre></div>
+<pre><code>## pred_accuracy
+## FALSE  TRUE 
+##    54  1521</code></pre>
+<p>-Not awful</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(pred_accuracy)<span class="op">/</span><span class="kw">length</span>(pred_accuracy)</code></pre></div>
+<pre><code>## [1] 0.9657143</code></pre>
+<ul>
+<li>96.57% accurate</li>
+</ul>
+</section><section id="important-variables" class="slide level2">
+<h2>Important variables?</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">varImpPlot</span>(rf_mod, <span class="dt">main =</span> <span class="st">&#39;Variable Importance&#39;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-34-1.png" width="768" /></p>
+</section><section id="predicted-raster-denoised" class="slide level2">
+<h2>Predicted Raster (denoised)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(clean_raster, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">axes =</span> F, <span class="dt">legend =</span> F, <span class="dt">main =</span> <span class="st">&quot;Random Forest: Power Line Detection (Denoised)&quot;</span>)</code></pre></div>
+<p><img src="Lab5_slide_example_files/figure-revealjs/unnamed-chunk-35-1.png" width="768" /></p>
+</section><section id="predicted-overlaid-on-dhm" class="slide level2">
+<h2>Predicted overlaid on dhm</h2>
+<p><img src="Lab5_slide_example_files/final.png" /></p>
+<!-- The code below here is magic... DO NOT TOUCH IT OR YOUR DOCUMENT WILL BE CURSED -->
+<!-- Be sure it is included in your documents (don't worry, it is invisible) -->
+<style type="text/css">code{white-space: pre-wrap;}</style>
+<style type="text/css">.reveal section img {border: 0;}</style>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+<script>
+$("p").has("img").each(function(){$(this).replaceWith($('<div class="stretch">' + this.innerHTML + '</div>'));});
+$("img").each(function(){$(this).replaceWith($('<img src=' + this.src + '>' + this.innerHTML + '</img>'));});
+$("li").addClass("fragment");
+</script>
+</section></section>
+    </div>
+  </div>
+
+  <script src="Lab5_slide_example_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="Lab5_slide_example_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'Lab5_slide_example_files/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
