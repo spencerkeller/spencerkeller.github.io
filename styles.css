@@ -98,7 +98,7 @@ a:active {
 
 /* active link */
 .sidebar a.active {
-	background-color = silver;
+	background-color: silver;
 	color: darkslategrey;
 }
 
