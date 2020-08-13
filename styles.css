@@ -23,6 +23,28 @@ hr {
 	opacity: 0.0;
 }
 
+figure {
+	display: inline-block;
+	vertical-align: top;
+	width: 300px;
+	border-radius: 8px;
+	margin: 20px; /*adjust as needed*/
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19)
+}
+
+figure img {
+	width: 300px;
+	border-radius: 8px;
+	vertical-align: top;
+}
+
+figure figcaption {
+	font-family: courier;
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+}
+
 /* links */
 a:link {
 	color: lightslategrey;
