@@ -99,6 +99,7 @@ a:active {
 /* active link */
 .sidebar a.active {
 	background-color: silver;
+	border-radius: 8px;
 	color: darkslategrey;
 }
 
