@@ -9,9 +9,11 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 24px;
   border-width: 100%;
 }
+
 h2 {
   font-size: 120%;
 }
+
 p {
   color: black;
   font-family: courier;
@@ -121,6 +123,10 @@ div.content {
 	margin-left: 232px;
 	padding: 8px 16px;
 	height: auto;
+}
+
+div.splash {
+	padding: 20px;
 }
 
 /* stack sidebar vertically if screen size < 700px */
