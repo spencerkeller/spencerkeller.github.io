@@ -29,9 +29,9 @@ function draw() {
   let tri_a = random(255);
   fill(tri_r,tri_g,tri_b,tri_a);
   triangle(
-    width*0.75 + random(-100,100), height*0.81 + random(-100,100), 
-    width*0.5 + random(-100,100), height*0.75 + random(-100,100), 
-    width*0.5 + random(-100,100), height*0.75 + random(-100,100));
+    width*0.75 + random(-90,90), height*0.81 + random(-90,90), 
+    width*0.5 + random(-90,90), height*0.75 + random(-90,90), 
+    width*0.5 + random(-90,90), height*0.75 + random(-90,90));
 
   let tri_r2 = random(-5,5);
   let tri_g2 = random(-5,5);
