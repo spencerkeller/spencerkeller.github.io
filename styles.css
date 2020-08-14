@@ -28,7 +28,7 @@ hr {
 figure {
 	display: inline-block;
 	vertical-align: top;
-	horizontal-align: center;
+	text-align: center;
 	width: 300px;
 	border-radius: 8px;
 	margin: 20px; /*adjust as needed*/
