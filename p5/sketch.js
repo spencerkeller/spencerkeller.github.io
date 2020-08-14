@@ -38,9 +38,9 @@ function draw() {
   let tri_a2 = random(255);
   fill(tri_r2,tri_g2,tri_b2,tri_a2);
   triangle(
-    width*0.5 + random(-100,100), height*0.3 + random(-100,100), 
-    width*0.5 + random(-100,100), height*0.3 + random(-100,100), 
-    width*0.5 + random(-100,100), height*0.3 + random(-100,100));
+    width*0.5 + random(-50,50), height*0.3 + random(-50,50), 
+    width*0.5 + random(-50,50), height*0.3 + random(-50,50), 
+    width*0.5 + random(-50,50), height*0.3 + random(-50,50));
 }
 
 function windowResized(){
