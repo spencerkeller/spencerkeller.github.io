@@ -116,7 +116,6 @@ a:active {
 
 /* page - left margin matches sidebar width */
 div.content {
-	border: 2px solid silver;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 10%10%;
@@ -124,10 +123,6 @@ div.content {
 	margin-left: 232px;
 	padding: 8px 16px;
 	height: auto;
-}
-
-div.splash {
-	padding: 20px;
 }
 
 /* stack sidebar vertically if screen size < 700px */
