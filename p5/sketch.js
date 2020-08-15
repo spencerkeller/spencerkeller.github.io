@@ -30,7 +30,7 @@ function draw() {
   let tri_a = random(255);
   fill(tri_r,tri_g,tri_b,tri_a);
   triangle(
-    width*0.75 + random(-90,90), height*0.81 + random(-90,90), 
+    mouseX - random(-50), mouseY - random(-50), 
     width*0.5 + random(-90,90), height*0.75 + random(-90,90), 
     width*0.5 + random(-90,90), height*0.75 + random(-90,90));
 
@@ -40,7 +40,7 @@ function draw() {
   let tri_a2 = random(255);
   fill(tri_r2,tri_g2,tri_b2,tri_a2);
   triangle(
-    width*0.25 + random(-75,75), height*0.27 + random(-75,75), 
+    mouseX - random(50), mouseY - random(50), 
     width*0.5 + random(-75,75), height*0.33 + random(-75,75), 
     width*0.5 + random(-75,75), height*0.33 + random(-75,75));
 }
