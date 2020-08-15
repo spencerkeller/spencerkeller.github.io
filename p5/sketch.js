@@ -27,22 +27,28 @@ function draw() {
   let tri_r = random(100,250);
   let tri_g = random(100,250);
   let tri_b = random(100,250);
-  let tri_a = random(255);
+  let tri_a = random(25);
+  if (mouseY > height * 0.6 & mouseX > width * 0.4 & mouseX < width * 0.6) {
+    tri_a = random(255);
+  }
   fill(tri_r,tri_g,tri_b,tri_a);
   triangle(
-    mouseX - random(-50), mouseY - random(-50), 
-    width*0.5 + random(-90,90), height*0.75 + random(-90,90), 
-    width*0.5 + random(-90,90), height*0.75 + random(-90,90));
+    width * 0.40 + random(-25,25), height * 0.90 + random(-25,25), 
+    width * 0.60 + random(-25,25), height * 0.90 + random(-25,25), 
+    width * 0.50 + random(-25,25), height * 0.50 + random(-25,25));
 
   let tri_r2 = random(-5,5);
   let tri_g2 = random(-5,5);
   let tri_b2 = random(-5,5);
-  let tri_a2 = random(255);
+  let tri_a2 = random(25);
+  if (mouseY < height * 0.4 & mouseX > width * 0.4 & mouseX < width * 0.6) {
+    tri_a2 = random(255);
+  }
   fill(tri_r2,tri_g2,tri_b2,tri_a2);
   triangle(
-    mouseX - random(50), mouseY - random(50), 
-    width*0.5 + random(-75,75), height*0.33 + random(-75,75), 
-    width*0.5 + random(-75,75), height*0.33 + random(-75,75));
+    width * 0.40 + random(-25,25), height * 0.10 + random(-25,25), 
+    width * 0.60 + random(-25,25), height * 0.10 + random(-25,25), 
+    width * 0.50 + random(-25,25), height * 0.50 + random(-25,25));
 }
 
 function windowResized(){
