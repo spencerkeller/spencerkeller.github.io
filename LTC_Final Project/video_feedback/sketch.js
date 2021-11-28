@@ -44,7 +44,7 @@ let shown = false;
 let font;
 
 function preload() {
-  font = loadFont('tahoma.ttf');
+  font = loadFont('SourceCodePro.otf');
 }
 
 function setup() {
