@@ -78,7 +78,7 @@ function draw() {
   translate(-(window.innerWidth/2), -(window.innerHeight/2));
 
   fill(255,255,255)
-  text('test', sizeSlider[0].x * 2 + sizeSlider[0].width, 35);
+  text('test', 0,0);
 
   if (capture.loadedmetadata == true) {
     c_width = capture.width;
