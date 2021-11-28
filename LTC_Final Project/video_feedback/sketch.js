@@ -42,6 +42,7 @@ let tintSlider;
 let opacSlider;
 let shown = false;
 let font;
+let txt = [];
 
 function preload() {
   font = loadFont('SourceCodePro.otf');
@@ -50,8 +51,6 @@ function preload() {
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight, WEBGL);
   setAttributes('alpha', false)
-  textFont(font);
-  textSize(32);
   bx0 = 100;
   by0 = 100;
   bx1 = 150;
@@ -64,12 +63,15 @@ function setup() {
   by4 = 300;
   capture = createCapture(VIDEO);
   capture.hide();
-  sizeSlider = []
+  textFont(font);
+  textSize(32);
+  txt[0] = text('test', sizeSlider[0].x * 2 + sizeSlider[0].width, 0);
+  sizeSlider = [];
   sizeSlider[0] = createSlider(0.1, 2, 1, 0.1);
   sizeSlider[0].position(0, 0);
   sizeSlider[0].hide();
   anglSlider = [];
-  anglSlider[0] = createSlider
+  anglSlider[0] = createSlider;
  
 }
 
@@ -77,8 +79,9 @@ function draw() {
   background(0);
   translate(-(window.innerWidth/2), -(window.innerHeight/2));
 
-  fill(255,255,255)
-  text('test', 100,100)
+  fill(255,255,255);
+  txt[0];
+
 
   if (capture.loadedmetadata == true) {
     c_width = capture.width;
