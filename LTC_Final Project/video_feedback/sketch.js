@@ -75,10 +75,10 @@ function setup() {
 
 function draw() {
   background(0);
-  fill(255,255,255)
-  text('test', 100,100);
-  print(mouseX + ' ' + mouseY);
   translate(-(window.innerWidth/2), -(window.innerHeight/2));
+
+  fill(255,255,255)
+  text('test', 100,100)
 
   if (capture.loadedmetadata == true) {
     c_width = capture.width;
