@@ -63,16 +63,16 @@ function setup() {
   by4 = 300;
   capture = createCapture(VIDEO);
   capture.hide();
-  textFont(font);
-  textSize(32);
-  txt[0] = text('test', sizeSlider[0].x * 2 + sizeSlider[0].width, 0);
   sizeSlider = [];
   sizeSlider[0] = createSlider(0.1, 2, 1, 0.1);
   sizeSlider[0].position(0, 0);
   sizeSlider[0].hide();
+  textFont(font);
+  textSize(32);
+  txt[0] = text('test', sizeSlider[0].x * 2 + sizeSlider[0].width, 0);
   anglSlider = [];
   anglSlider[0] = createSlider;
- 
+  
 }
 
 function draw() {
@@ -81,7 +81,6 @@ function draw() {
 
   fill(255,255,255);
   txt[0];
-
 
   if (capture.loadedmetadata == true) {
     c_width = capture.width;
