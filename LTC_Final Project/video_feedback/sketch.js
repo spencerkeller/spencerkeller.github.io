@@ -51,7 +51,7 @@ function setup() {
   createCanvas(window.innerWidth, window.innerHeight, WEBGL);
   setAttributes('alpha', false)
   textFont(font);
-  textSize(16);
+  textSize(32);
   bx0 = 100;
   by0 = 100;
   bx1 = 150;
