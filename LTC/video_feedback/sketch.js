@@ -512,9 +512,7 @@ function keyPressed() {
   }
 
   if (keyCode == 57) {
-    if (hidden == false) {
-      hidden = true;
-    } else {
+    if (hidden == true) {
       hidden = false;
     }
   }
@@ -596,6 +594,14 @@ function keyPressed() {
       shown = false;
     }
   }
+}
+
+function keyReleased () {
+  if (keyCode == 57) {
+    if (hidden == false) {
+      hidden = true;
+    }
+}
 }
 
 function mousePressed() {
