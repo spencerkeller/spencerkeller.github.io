@@ -64,7 +64,7 @@ let opacSlider;
 let new_opac = [];
 let targetAngle = 0.0;
 let shown = true;
-let hidden = false;
+let hidden = true;
 let font;
 let txt = [];
 
@@ -249,7 +249,30 @@ function draw() {
     txt[18] = text('Cam #5 Tint', tintSlider[14].x + (tintSlider[14].width + 4), tintSlider[14].y + (tintSlider[14].height - 4));
     txt[19] = text('Cam #5 Opacity', opacSlider[4].x + (opacSlider[4].width + 4), opacSlider[4].y + (opacSlider[4].height - 4));
     
-    text("Keyboard controls: \n1-5: enable/disable camera windows \n0: Show/hide these options", opacSlider[4].x + 4, opacSlider[4].y + (opacSlider[4].height*2));
+    text("\n" +
+         "KEYBOARD CONTROLS:" +
+         "\n" +
+         "1-5: Show/hide camera windows" +
+         "\n" +
+         "9: Show/hide ellipses" +
+         "\n" +
+         "0: Show/hide these options" +
+         "\n\n" +
+         "USAGE:" +
+         "\n" +
+         "Experimentation is highly encouraged," +
+         "\n" +
+         "but an external webcam or camera is recommended." +
+         "\n" +
+         "Add, remove, arrange, and manipulate camera windows," +
+         "\n" +
+         "making sure to overlap in some areas." +
+         "\n" +
+         "Point your camera at the screen and make" +
+         "\n" +
+         "subtle rotational adjustments until" +
+         "\n" +
+         "you dial in some neat fractals!", opacSlider[4].x + 4, opacSlider[4].y + (opacSlider[4].height*2));
   }
   pop();
 
@@ -267,7 +290,7 @@ function draw() {
     new_tint[2] = tintSlider[2].value();
     new_opac[0] = opacSlider[0].value();
     new_angle[0] = anglSlider[0].value();
-
+    blendMode(ADD);
     //adjust tint
     tint(new_tint[0],new_tint[1],new_tint[2],new_opac[0]);
 
@@ -279,14 +302,21 @@ function draw() {
     image(capture, 0, 0, c_width * new_size[0], c_height * new_size[0]);
 
     //Hit test
-    if (cam0 == true && dist(bx0, by0, mouseX - windowWidth/2, mouseY - windowHeight/2) < (c_height/2)) {
+    if (cam0 == true && dist(bx0, by0, mouseX - windowWidth/2, mouseY - windowHeight/2) < (c_height/4)) {
       overBox0 = true;
-      stroke(128,128,128);
+      stroke(217, 148, 20);
       noFill();
-      ellipse(0,0,c_height);
+      ellipse(0,0,c_height/2);
+      stroke(128, 128, 128);
+      rect(0,0,c_width * new_size[0],c_height * new_size[0]);
     } else {
       overBox0 = false;
     }
+    if (hidden == false) {
+    stroke(217, 148, 20);
+    noFill();
+    ellipse(0,0,c_height/2);
+  }
   }
   pop();
 
@@ -299,7 +329,7 @@ function draw() {
     new_tint[5] = tintSlider[5].value();
     new_opac[1] = opacSlider[1].value();
     new_angle[1] = anglSlider[1].value();
-
+    blendMode(ADD);
     //Adjust tint
     tint(new_tint[3],new_tint[4],new_tint[5],new_opac[1]);
 
@@ -311,14 +341,21 @@ function draw() {
     image(capture, 0, 0, c_width * new_size[1], c_height * new_size[1]);
 
     //Hit test
-    if (cam1 == true && dist(bx1, by1, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/2)) {
+    if (cam1 == true && dist(bx1, by1, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/4)) {
       overBox1 = true;
-      stroke(128,128,128);
+      stroke(217, 148, 20);
       noFill();
-      ellipse(0,0,c_height);
+      ellipse(0,0,c_height/2);
+      stroke(128, 128, 128);
+      rect(0,0,c_width * new_size[1],c_height * new_size[1]);
     } else {
       overBox1 = false;
     }
+    if (hidden == false) {
+    stroke(217, 148, 20);
+    noFill();
+    ellipse(0,0,c_height/2);
+  }
   }
   pop();
   push();
@@ -330,7 +367,7 @@ function draw() {
     new_tint[8] = tintSlider[8].value();
     new_opac[2] = opacSlider[2].value();
     new_angle[2] = anglSlider[2].value();
-
+    blendMode(ADD);
     //Adjust tint
     tint(new_tint[6],new_tint[7],new_tint[8],new_opac[2]);
 
@@ -342,13 +379,20 @@ function draw() {
     image(capture, 0, 0, c_width * new_size[2], c_height * new_size[2]);
 
     //Hit test
-    if (cam2 == true && dist(bx2, by2, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/2)) {
+    if (cam2 == true && dist(bx2, by2, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/4)) {
     overBox2 = true;
-    stroke(128,128,128);
+    stroke(217, 148, 20);
     noFill();
-    ellipse(0,0,c_height);
+    ellipse(0,0,c_height/2);
+    stroke(128, 128, 128);
+    rect(0,0,c_width * new_size[2],c_height * new_size[2]);
   } else {
     overBox2 = false;
+  }
+  if (hidden == false) {
+    stroke(217, 148, 20);
+    noFill();
+    ellipse(0,0,c_height/2);
   }
   }
   pop();
@@ -373,13 +417,20 @@ function draw() {
     image(capture, 0, 0, c_width * new_size[3], c_height * new_size[3]);
 
     //Hit test
-    if (cam3 == true && dist(bx3, by3, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/2)) {
+    if (cam3 == true && dist(bx3, by3, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/4)) {
     overBox3 = true;
-    stroke(128,128,128);
+    stroke(217, 148, 20);
     noFill();
-    ellipse(0,0,c_height);
+    ellipse(0,0,c_height/2);
+    stroke(128, 128, 128);
+    rect(0,0,c_width * new_size[3],c_height * new_size[3]);
   } else {
     overBox3 = false;
+  }
+  if (hidden == false) {
+    stroke(217, 148, 20);
+    noFill();
+    ellipse(0,0,c_height/2);
   }
   }
   pop();
@@ -404,13 +455,20 @@ function draw() {
     image(capture, 0, 0, c_width * new_size[4], c_height * new_size[4]);
 
     //Hit test
-    if (cam3 == true && dist(bx4, by4, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/2)) {
+    if (cam4 == true && dist(bx4, by4, (mouseX - windowWidth/2), (mouseY - windowHeight/2)) < (c_height/4)) {
     overBox4 = true;
-    stroke(128,128,128);
+    stroke(217, 148, 20);
     noFill();
-    ellipse(0,0,c_height);
+    ellipse(0,0,c_height/2);
+    stroke(128, 128, 128);
+    rect(0,0,c_width * new_size[4],c_height * new_size[4]);
   } else {
     overBox4 = false;
+  }
+  if (hidden == false) {
+    stroke(217, 148, 20);
+    noFill();
+    ellipse(0,0,c_height/2);
   }
   }
   pop();  
@@ -452,7 +510,17 @@ function keyPressed() {
       cam4 = false;
     }
   }
-  if (keyCode == 48 && shown == false) {
+
+  if (keyCode == 57) {
+    if (hidden == false) {
+      hidden = true;
+    } else {
+      hidden = false;
+    }
+  }
+
+  if (keyCode == 48) {
+    if (shown == false){ 
       sizeSlider[0].show();
       anglSlider[0].show();
       tintSlider[0].show();
@@ -489,7 +557,7 @@ function keyPressed() {
       opacSlider[4].show();
       
       shown = true;
-    } else if (keyCode == 48 && shown == true) {
+    } else {
       sizeSlider[0].hide();
       anglSlider[0].hide();
       tintSlider[0].hide();
@@ -527,6 +595,7 @@ function keyPressed() {
       
       shown = false;
     }
+  }
 }
 
 function mousePressed() {
