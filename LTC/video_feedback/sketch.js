@@ -226,27 +226,27 @@ function draw() {
     translate(-windowWidth/2, -windowHeight/2);
     txt[0] = text('Cam #1 Size', sizeSlider[0].x + (sizeSlider[0].width + 4), sizeSlider[0].y + (sizeSlider[0].height - 4));
     txt[1] = text('Cam #1 Angle', anglSlider[0].x + (anglSlider[0].width + 4), anglSlider[0].y + (anglSlider[0].height - 4));
-    txt[2] = text('Cam #1 RGB', tintSlider[2].x + tintSlider[2].width + 4, tintSlider[2].y + tintSlider[2].height - 4);
+    txt[2] = text('Cam #1 R G B', tintSlider[2].x + tintSlider[2].width + 4, tintSlider[2].y + tintSlider[2].height - 4);
     txt[3] = text('Cam #1 Opacity', opacSlider[0].x + (opacSlider[0].width + 4), opacSlider[0].y + (opacSlider[0].height - 4));
     
     txt[4] = text('Cam #2 Size', sizeSlider[1].x + (sizeSlider[1].width + 4), sizeSlider[1].y + (sizeSlider[1].height - 4));
     txt[5] = text('Cam #2 Angle', anglSlider[1].x + (anglSlider[1].width + 4), anglSlider[1].y + (anglSlider[1].height - 4));
-    txt[6] = text('Cam #2 RGB', tintSlider[5].x + (tintSlider[5].width + 4), tintSlider[5].y + (tintSlider[5].height - 4));
+    txt[6] = text('Cam #2 R G B', tintSlider[5].x + (tintSlider[5].width + 4), tintSlider[5].y + (tintSlider[5].height - 4));
     txt[7] = text('Cam #2 Opacity', opacSlider[1].x + (opacSlider[1].width + 4), opacSlider[1].y + (opacSlider[1].height - 4));
     
     txt[8] = text('Cam #3 Size', sizeSlider[2].x + (sizeSlider[2].width + 4), sizeSlider[2].y + (sizeSlider[2].height - 4));
     txt[9] = text('Cam #3 Angle', anglSlider[2].x + (anglSlider[2].width + 4), anglSlider[2].y + (anglSlider[2].height - 4));
-    txt[10] = text('Cam #3 Tint', tintSlider[8].x + (tintSlider[8].width + 4), tintSlider[8].y + (tintSlider[8].height - 4));
+    txt[10] = text('Cam #3 R G B', tintSlider[8].x + (tintSlider[8].width + 4), tintSlider[8].y + (tintSlider[8].height - 4));
     txt[11] = text('Cam #3 Opacity', opacSlider[2].x + (opacSlider[2].width + 4), opacSlider[2].y + (opacSlider[2].height - 4));
     
     txt[12] = text('Cam #4 Size', sizeSlider[3].x + (sizeSlider[3].width + 4), sizeSlider[3].y + (sizeSlider[3].height - 4));
     txt[13] = text('Cam #4 Angle', anglSlider[3].x + (anglSlider[3].width + 4), anglSlider[3].y + (anglSlider[3].height - 4));
-    txt[14] = text('Cam #4 RGB', tintSlider[11].x + (tintSlider[11].width + 4), tintSlider[11].y + (tintSlider[11].height - 4));
+    txt[14] = text('Cam #4 R G B', tintSlider[11].x + (tintSlider[11].width + 4), tintSlider[11].y + (tintSlider[11].height - 4));
     txt[15] = text('Cam #4 Opacity', opacSlider[3].x + (opacSlider[3].width + 4), opacSlider[3].y + (opacSlider[3].height - 4));
     
     txt[16] = text('Cam #5 Size', sizeSlider[4].x + (sizeSlider[4].width + 4), sizeSlider[4].y + (sizeSlider[4].height - 4));
     txt[17] = text('Cam #5 Angle', anglSlider[4].x + (anglSlider[4].width + 4), anglSlider[4].y + (anglSlider[4].height - 4));
-    txt[18] = text('Cam #5 Tint', tintSlider[14].x + (tintSlider[14].width + 4), tintSlider[14].y + (tintSlider[14].height - 4));
+    txt[18] = text('Cam #5 R G B', tintSlider[14].x + (tintSlider[14].width + 4), tintSlider[14].y + (tintSlider[14].height - 4));
     txt[19] = text('Cam #5 Opacity', opacSlider[4].x + (opacSlider[4].width + 4), opacSlider[4].y + (opacSlider[4].height - 4));
     
     text("\n" +
