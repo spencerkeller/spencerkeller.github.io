@@ -224,6 +224,7 @@ function draw() {
   push();
   if (shown == true) {
     translate(-windowWidth/2, -windowHeight/2);
+    
     txt[0] = text('Cam #1 Size', sizeSlider[0].x + (sizeSlider[0].width + 4), sizeSlider[0].y + (sizeSlider[0].height - 4));
     txt[1] = text('Cam #1 Angle', anglSlider[0].x + (anglSlider[0].width + 4), anglSlider[0].y + (anglSlider[0].height - 4));
     txt[2] = text('Cam #1 R G B', tintSlider[2].x + tintSlider[2].width + 4, tintSlider[2].y + tintSlider[2].height - 4);
@@ -248,31 +249,47 @@ function draw() {
     txt[17] = text('Cam #5 Angle', anglSlider[4].x + (anglSlider[4].width + 4), anglSlider[4].y + (anglSlider[4].height - 4));
     txt[18] = text('Cam #5 R G B', tintSlider[14].x + (tintSlider[14].width + 4), tintSlider[14].y + (tintSlider[14].height - 4));
     txt[19] = text('Cam #5 Opacity', opacSlider[4].x + (opacSlider[4].width + 4), opacSlider[4].y + (opacSlider[4].height - 4));
-    
-    text("\n" +
-         "KEYBOARD CONTROLS:" +
+    fill(255, 176, 5);
+    textSize(24);
+    txt[20] = text(
+         "\n" +
+         "KEYBOARD CONTROLS:", opacSlider[4].x + 4, opacSlider[4].y + (opacSlider[4].height*2));
+    fill(255,255,255);
+    textSize(16);
+    txt[21] = text(
          "\n" +
          "1-5: Show/hide camera windows" +
          "\n" +
          "9: Show/hide ellipses" +
          "\n" +
-         "0: Show/hide these options" +
-         "\n\n" +
-         "USAGE:" +
+         "0: Show/hide these options", opacSlider[4].x + 4, opacSlider[4].y + (opacSlider[4].height*2)+28);
+    fill(255, 176, 5);
+    textSize(24);
+    txt[22] = text(
+         "USAGE NOTES:", opacSlider[4].x + 4, opacSlider[4].y + (opacSlider[4].height*2)+130);
+    
+    fill(255,255,255);
+    textSize(16);
+    txt[23] = text(
+         "Experimentation is highly encouraged, but an" +
          "\n" +
-         "Experimentation is highly encouraged," +
+         "external webcam or camera is necessary for creating" +
          "\n" +
-         "but an external webcam or camera is recommended." +
+         "video feedback. For that use case, you'll need to" +
+         "\n" +
+         "be able to point your camera at the same screen" +
+         "\n" +
+         "that your camera's video is being displayed on." +
+         "\n" +
+         "Using your keyboard and and the controls above:" +
          "\n" +
          "Add, remove, arrange, and manipulate camera windows," +
          "\n" +
-         "making sure to overlap in some areas." +
+         "making sure to overlap in some areas. Point your" +
          "\n" +
-         "Point your camera at the screen and make" +
+         "camera at the screen and make subtle rotational" +
          "\n" +
-         "subtle rotational adjustments until" +
-         "\n" +
-         "you dial in some neat fractals!", opacSlider[4].x + 4, opacSlider[4].y + (opacSlider[4].height*2));
+         "adjustments until you dial in some neat fractals!", opacSlider[4].x + 4, opacSlider[4].y + (opacSlider[4].height*2)+148);
   }
   pop();
 
