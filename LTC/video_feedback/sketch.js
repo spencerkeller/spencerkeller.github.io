@@ -280,8 +280,8 @@ function draw() {
          "be able to point your camera at the same screen" +
          "\n" +
          "that your camera's video is being displayed on." +
-         "\n" +
-         "Using your keyboard and and the controls above:" +
+         "\n\n" +
+         "Using your keyboard and the controls above:" +
          "\n" +
          "Add, remove, arrange, and manipulate camera windows," +
          "\n" +
