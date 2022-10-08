@@ -28,27 +28,45 @@ hr {
 	opacity: 0.0;
 }
 
-figure {
-	display: inline-block;
+.figure {
+	display:inline-block;
+	position: relative;
 	vertical-align: top;
-	text-align: center;
 	width: 200px;
 	border-radius: 8px;
-	margin: 10px; /*adjust as needed*/
+	margin: 20px; /*adjust as needed*/
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
-	outline-style: dotted;
+	outline-style: solid;
 	outline-width: 2px;
 	outline-offset: 2px;
 	outline-color: slategrey;
 }
 
-figure img {
+.figure:hover:after{
+	display: inline-block;
+	position:absolute;
+    content: attr(title);
+	border-radius: 8px;
+	outline-style: solid;
+	outline-width: 2px;
+	outline-color: slategrey;
+    left:auto;
+	right: 0;
+    top: 0;
+	bottom: auto;
+    padding: 5px;
+    background-color: whitesmoke;
+	opacity: 90%;
+    color: darkslategrey;
+}
+
+.figure img {
 	width: 200px;
 	border-radius: 8px;
 	vertical-align: top;
 }
 
-figure figcaption {
+.figure figcaption {
 	color: rgb(36, 51, 51);
 	font-family: courier;
 	font-size: 18px;
@@ -100,6 +118,7 @@ a:active {
 
 /* sidebar links */
 .sidebar a {
+	font-weight: bold;
 	display: block;
 	color: black;
 	text-align: center;
@@ -109,15 +128,24 @@ a:active {
 
 /* active link */
 .sidebar a.active {
-	background-color : silver;
-	color: darkslategrey;
+	font-weight: bold;
+	border-radius: 8px;
+	background-color: darkslategrey;
+	color: silver;
+	border-color: whitesmoke;
+	border-style: solid;
+	border-width: 2px;
 }
 
 /* hover link */
 .sidebar a:hover:not(.active) {
+	font-weight: bold;
 	border-radius: 8px;
 	background-color: darkslategrey;
 	color: silver;
+	border-color: whitesmoke;
+	border-style: solid;
+	border-width: 2px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
