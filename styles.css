@@ -2,20 +2,23 @@
 body {
   background-color: whitesmoke;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6 {
   color: darkslategrey;
   font-family: courier;
-  border: 2px dashed silver;
   padding-left: 24px;
   border-width: 100%;
 }
-
 h2 {
-  font-size: 120%;
+  font-size: 150%;
+  color: darkslategrey;
+  font-family: courier;
+  border: 2px dashed slategrey;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-width: 100%;
 }
-
 p {
-  color: black;
+  color: rgb(43, 58, 58);
   font-family: courier;
   padding-left: 24px;
 }
@@ -29,23 +32,28 @@ figure {
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
-	width: 300px;
+	width: 200px;
 	border-radius: 8px;
-	margin: 20px; /*adjust as needed*/
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19)
+	margin: 10px; /*adjust as needed*/
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+	outline-style: dotted;
+	outline-width: 2px;
+	outline-offset: 2px;
+	outline-color: slategrey;
 }
 
 figure img {
-	width: 300px;
+	width: 200px;
 	border-radius: 8px;
 	vertical-align: top;
 }
 
 figure figcaption {
+	color: rgb(36, 51, 51);
 	font-family: courier;
 	font-size: 18px;
 	text-align: center;
-	font-weight: bold;
+	font-style: italic;
 }
 
 /* links */
@@ -101,8 +109,7 @@ a:active {
 
 /* active link */
 .sidebar a.active {
-	background-color: silver;
-	border-radius: 8px;
+	background-color : silver;
 	color: darkslategrey;
 }
 
@@ -116,6 +123,7 @@ a:active {
 
 /* page - left margin matches sidebar width */
 div.content {
+	border: 2px solid silver;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 10%10%;
@@ -138,3 +146,5 @@ div.content {
   .sidebar a {text-align: center;float: none;}
   div.content {margin-left: 0;}
 }
+/* tab */
+ .tab { margin-left: 40px; }
