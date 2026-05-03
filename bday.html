@@ -25,10 +25,10 @@
             margin: 0;
             padding: 0;
             cursor: crosshair;
-            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+            overflow-x: hidden;
         }
 
-        /* Responsive Title Banner - Adjusted for Mobile Wrapping */
+        /* Responsive Title Banner */
         .main-banner {
             background-color: #ff00ff; /* Magenta */
             color: #00ffff; /* Cyan */
@@ -46,21 +46,25 @@
             word-wrap: break-word;
         }
 
-        /* Morbid Counter Section */
+        /* Morbid / Cute Counter Section */
         .counter-section {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 30px;
             background: #000;
-            border: 4px dotted #00ff00;
+            border: 4px dotted #00ff00; /* Defaults to green */
             width: fit-content;
             max-width: 95vw;
             margin-left: auto;
             margin-right: auto;
             padding: 15px clamp(10px, 3vw, 25px);
+            cursor: pointer; /* Indicates it can be clicked */
+            transition: border-color 0.3s;
+            user-select: none;
         }
 
+        /* Morbid Specifics */
         .death-counter {
             font-family: 'VT323', monospace;
             font-size: clamp(3rem, 12vw, 5rem); 
@@ -94,23 +98,63 @@
             filter: drop-shadow(2px 2px 0px #ff00ff);
         }
 
-        .sword-ccw {
-            animation: spin-ccw 0.4s linear infinite;
+        .sword-ccw { animation: spin-ccw 0.4s linear infinite; }
+        .sword-cw { animation: spin-cw 0.4s linear infinite; }
+
+        @keyframes spin-cw { 100% { transform: rotate(360deg); } }
+        @keyframes spin-ccw { 100% { transform: rotate(-360deg); } }
+
+        /* Cute Specifics */
+        .cute-layout {
+            display: flex;
+            flex-direction: row;
+            gap: clamp(15px, 4vw, 40px);
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .sword-cw {
-            animation: spin-cw 0.4s linear infinite;
+        .cute-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        @keyframes spin-cw {
-            100% { transform: rotate(360deg); }
+        .cute-counter {
+            font-family: 'VT323', monospace;
+            font-size: clamp(2.5rem, 10vw, 4rem); 
+            color: #ffb6c1; /* Soft pink */
+            letter-spacing: 2px;
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+            margin-bottom: 10px;
         }
 
-        @keyframes spin-ccw {
-            100% { transform: rotate(-360deg); }
+        .cute-header {
+            font-family: 'VT323', monospace;
+            color: #fff;
+            font-size: clamp(1.2rem, 5vw, 1.6rem);
+            text-transform: uppercase;
+            line-height: 1;
+            text-shadow: 1px 1px #ff1493;
         }
 
-        /* Layout: Stacked vertically for mobile by default */
+        .animal-icon {
+            font-size: clamp(1.8rem, 7vw, 3rem);
+            display: inline-block;
+            animation: hop 0.5s alternate infinite cubic-bezier(0.5, 0.05, 1, 0.5);
+            margin: 0 10px;
+        }
+
+        /* Offset the hop timing so they don't bounce exactly together */
+        .animal-icon.cat { animation-delay: 0s; }
+        .animal-icon.bunny { animation-delay: 0.25s; }
+
+        @keyframes hop {
+            0% { transform: translateY(0) scaleY(0.9); }
+            100% { transform: translateY(-15px) scaleY(1.1); }
+        }
+
+        /* Layout */
         .content-layout {
             display: flex;
             flex-direction: column;
@@ -122,7 +166,6 @@
             margin: 0 auto;
         }
 
-        /* Center Column for GIF and Activation Code */
         .center-column {
             display: flex;
             flex-direction: column;
@@ -154,18 +197,23 @@
 
         .activation-code {
             background: #fff;
-            color: #ff0000;
-            font-size: clamp(1.5rem, 6vw, 2rem);
+            color: #000; /* Starts neutral */
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
             font-weight: bold;
             padding: 12px 5px;
             border: 2px solid #ff1493;
             cursor: pointer;
-            user-select: all; 
-            -webkit-user-select: all;
             transition: background 0.1s, color 0.1s;
         }
 
-        .activation-code:active {
+        /* Class applied via JS once the 25s reveal is done */
+        .activation-code.is-ready {
+            color: #ff0000;
+            user-select: all; 
+            -webkit-user-select: all;
+        }
+
+        .activation-code.is-ready:active {
             background: #ff1493;
             color: #fff;
         }
@@ -175,12 +223,13 @@
             font-size: clamp(1rem, 4vw, 1.2rem);
             color: #00ff00;
             margin-top: 10px;
+            visibility: hidden; /* Hidden until code is ready */
             animation: blink 1s step-start infinite;
         }
 
         /* Space-Time Meters */
         .meter-box {
-            background-color: #ffb6c1; /* Light Pink */
+            background-color: #ffb6c1; 
             border: 6px outset #ff1493;
             padding: clamp(15px, 4vw, 20px);
             width: 100%;
@@ -188,7 +237,6 @@
             color: #000;
         }
 
-        /* Center-aligned Title with Flanking Stars */
         .meter-title-container {
             display: flex;
             justify-content: center;
@@ -237,7 +285,6 @@
             gap: 8px;
         }
 
-        /* Row containers locked to single line */
         .timer-row {
             display: flex;
             justify-content: center;
@@ -256,7 +303,7 @@
             font-variant-numeric: tabular-nums;
         }
 
-        /* Sub Stats High Precision */
+        /* Sub Stats */
         .sub-stats {
             background: #000;
             color: #00ff00;
@@ -283,7 +330,6 @@
             color: #ffff00;
         }
         
-        /* Media query strictly for desktop visual breathing room */
         @media (min-width: 1000px) {
             .content-layout {
                 flex-direction: row;
@@ -303,13 +349,36 @@
         🎉✨💕 HAPPY SPIRIT JOURNEY FORMATION ANNIVERSARY! 💕✨🎉
     </div>
 
-    <div class="counter-section">
-        <div class="death-counter" id="demise-counter">0.0000</div>
-        <div class="counter-bottom-row">
-            <div class="sword sword-ccw">🗡️</div>
-            <div class="counter-header">DEAD MEN</div>
-            <div class="sword sword-cw">🗡️</div>
+    <div class="counter-section" id="master-counter" onclick="toggleCounters()" title="Click to swap!">
+        
+        <div id="morbid-view">
+            <div class="death-counter" id="demise-counter">0.0000</div>
+            <div class="counter-bottom-row">
+                <div class="sword sword-ccw">🗡️</div>
+                <div class="counter-header">DEAD MEN</div>
+                <div class="sword sword-cw">🗡️</div>
+            </div>
         </div>
+
+        <div id="cute-view" style="display: none;">
+            <div class="cute-layout">
+                <div class="cute-col">
+                    <div class="cute-counter" id="cat-counter">0.0000</div>
+                    <div class="counter-bottom-row">
+                        <div class="animal-icon cat">🐱</div>
+                        <div class="cute-header">NEW KITTIES</div>
+                    </div>
+                </div>
+                <div class="cute-col">
+                    <div class="cute-counter" id="bunny-counter">0.0000</div>
+                    <div class="counter-bottom-row">
+                        <div class="cute-header">NEW BUNNIES</div>
+                        <div class="animal-icon bunny">🐰</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="content-layout">
@@ -343,8 +412,10 @@
         <div class="center-column">
             <div class="activation-container">
                 <div class="activation-header">Non-Crystalline Solid Fusion<br>Activation Code</div>
-                <div class="activation-code" onclick="copyCode()" title="Click to copy">FG37 8H76 7274 934B</div>
-                <div class="copy-hint" id="copy-hint">[ CLICK CODE TO COPY ]</div>
+                
+                <div class="activation-code" id="code-box" onclick="handleCodeInteraction(this)">CLICK HERE TO REVEAL CODE</div>
+                
+                <div class="copy-hint" id="copy-hint">[ CLICK CODE TO BEGIN NON-CRYSTALLINE SOLID FUSION ]</div>
             </div>
         </div>
 
@@ -377,70 +448,134 @@
     </div>
 
     <script>
-        // --- NEW AUDIO AUTOPLAY WORKAROUND ---
-        // Listens for the very first time the user taps or clicks anywhere on the page
-        document.body.addEventListener('click', function() {
-            const bgMusic = document.getElementById('bg-music');
-            if (bgMusic.paused) {
-                bgMusic.play().catch(error => {
-                    console.log("Audio playback failed:", error);
-                });
-            }
-        }, { once: true }); // 'once: true' ensures this event listener removes itself after firing once
-
-
-        // Constants for Calculations
+        // --- CONSTANTS ---
         const LUNAR_CYCLE_DAYS = 29.53059;
         const SUN_REVOLUTION_DAYS = 365.24219;
         const MS_PER_DAY = 1000 * 60 * 60 * 24;
         
-        // Approx 26.5 million adult male deaths annually globally
+        // Counter Demographics
         const ANNUAL_ADULT_MALE_DEATHS = 26500000; 
         const DEATHS_PER_MS = ANNUAL_ADULT_MALE_DEATHS / (SUN_REVOLUTION_DAYS * MS_PER_DAY);
 
-        // Birthdates (Months are 0-indexed in JS, so 4 = May)
+        // Est. global annual births to make the counter run fast and cute
+        const ANNUAL_CATS = 150000000;  
+        const ANNUAL_BUNNIES = 85000000; 
+        const CATS_PER_MS = ANNUAL_CATS / (SUN_REVOLUTION_DAYS * MS_PER_DAY);
+        const BUNNIES_PER_MS = ANNUAL_BUNNIES / (SUN_REVOLUTION_DAYS * MS_PER_DAY);
+
         const hannaBday = new Date(1998, 4, 5, 0, 0, 0);
         const hopeBday = new Date(1999, 4, 16, 0, 0, 0);
+        
+        // Capture exact time the page loads for the animal counters
+        const pageLoadTime = new Date().getTime();
 
-        // Clipboard Copy & Open Link Function
-        function copyCode() {
+        // --- STATE VARIABLES ---
+        let isCuteMode = false;
+        let isCodeRevealing = false;
+        let isCodeReady = false;
+
+        // --- INTERACTION LOGIC ---
+
+        function toggleCounters() {
+            isCuteMode = !isCuteMode;
+            
+            // Toggle Display
+            document.getElementById('morbid-view').style.display = isCuteMode ? 'none' : 'block';
+            document.getElementById('cute-view').style.display = isCuteMode ? 'block' : 'none';
+            
+            // Toggle Section Border Color
+            document.getElementById('master-counter').style.borderColor = isCuteMode ? '#ffb6c1' : '#00ff00';
+        }
+
+        function handleCodeInteraction(element) {
+            // If completely revealed, perform the copy action
+            if (isCodeReady) {
+                executeCopy();
+                return;
+            }
+
+            // If already in the process of revealing, do nothing on click
+            if (isCodeRevealing) return;
+
+            // Start Reveal Sequence
+            isCodeRevealing = true;
+            element.style.cursor = 'default';
+
+            // 1. Audio Fade In (3 Seconds)
+            const bgMusic = document.getElementById('bg-music');
+            bgMusic.volume = 0;
+            bgMusic.play().catch(err => console.log("Audio play prevented:", err));
+            
+            let fadeStep = 0;
+            const fadeInterval = setInterval(() => {
+                fadeStep += 1;
+                bgMusic.volume = Math.min(fadeStep * 0.05, 1); // 20 steps of 0.05 = Max volume 1
+                if (fadeStep >= 20) clearInterval(fadeInterval);
+            }, 150); // 150ms * 20 steps = 3000ms
+
+            // 2. Start the percentage counter (25 Seconds)
+            const duration = 25000;
+            const startTime = Date.now();
+            
+            const progressInterval = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                let percentage = Math.floor((elapsed / duration) * 100);
+                
+                if (percentage >= 100) {
+                    // 3. Complete the reveal
+                    percentage = 100;
+                    clearInterval(progressInterval);
+                    
+                    isCodeRevealing = false;
+                    isCodeReady = true;
+                    
+                    element.innerHTML = "FG37 8H76 7274 934B";
+                    element.classList.add('is-ready'); 
+                    element.style.cursor = 'pointer';
+                    
+                    // Reveal the flashing hint
+                    document.getElementById('copy-hint').style.visibility = 'visible';
+                } else {
+                    // Update the percentage text
+                    element.innerHTML = `${percentage}%`;
+                }
+            }, 50); // Update frequently so the percentage ticks up smoothly
+        }
+
+        function executeCopy() {
             const codeText = "FG37 8H76 7274 934B";
             const targetUrl = "https://www.meltglass.com/collections/classes/products/pick-a-project-fusing-class";
             
             navigator.clipboard.writeText(codeText).then(() => {
                 const hint = document.getElementById('copy-hint');
                 hint.innerText = "*** COPIED! ***";
-                hint.style.color = "#ffff00"; // Yellow flash
-                hint.style.animation = "none"; // Stop blinking briefly
+                hint.style.color = "#ffff00";
+                hint.style.animation = "none"; 
                 
-                // Reset after 2 seconds
                 setTimeout(() => {
                     hint.innerText = "[ CLICK CODE TO COPY ]";
                     hint.style.color = "#00ff00";
                     hint.style.animation = "blink 1s step-start infinite";
                 }, 2000);
 
-                // Open the link in a new tab
                 window.open(targetUrl, '_blank');
             }).catch(err => {
                 console.error('Failed to copy text: ', err);
-                // Fallback attempt to open window even if clipboard fails
                 window.open(targetUrl, '_blank');
             });
         }
 
-        // Formats a number with commas and fixed decimal places
+
+        // --- UTILITY & MATH LOGIC ---
+
         function formatHighPrecision(number, decimals) {
             const parts = number.toFixed(decimals).split('.');
             const wholePart = parseInt(parts[0], 10).toLocaleString('en-US');
             return `${wholePart}.${parts[1]}`;
         }
 
-        // Calculate and return all age statistics
         function calculateStats(birthDate) {
             const now = new Date();
-
-            // Main Timer exact time breakdowns
             let years = now.getFullYear() - birthDate.getFullYear();
             let months = now.getMonth() - birthDate.getMonth();
             let days = now.getDate() - birthDate.getDate();
@@ -458,19 +593,13 @@
             const weeks = Math.floor(days / 7);
             const remainingDays = days % 7;
 
-            // High Precision Stats (based on total milliseconds alive)
             const totalMsExact = now.getTime() - birthDate.getTime() + now.getMilliseconds();
             const exactDaysAlive = totalMsExact / MS_PER_DAY;
 
             return {
                 main: {
-                    years: years,
-                    months: months,
-                    weeks: weeks,
-                    days: remainingDays,
-                    hours: now.getHours(),
-                    minutes: now.getMinutes(),
-                    seconds: now.getSeconds()
+                    years: years, months: months, weeks: weeks, days: remainingDays,
+                    hours: now.getHours(), minutes: now.getMinutes(), seconds: now.getSeconds()
                 },
                 precision: {
                     earth: exactDaysAlive,
@@ -480,9 +609,7 @@
             };
         }
 
-        // Update DOM elements for a specific person
         function updateDOM(prefix, stats) {
-            // Update Main Timer (pad single digits with 0)
             document.getElementById(`${prefix}-y`).innerText = stats.main.years;
             document.getElementById(`${prefix}-mo`).innerText = stats.main.months;
             document.getElementById(`${prefix}-w`).innerText = stats.main.weeks;
@@ -492,27 +619,30 @@
             document.getElementById(`${prefix}-m`).innerText = String(stats.main.minutes).padStart(2, '0');
             document.getElementById(`${prefix}-s`).innerText = String(stats.main.seconds).padStart(2, '0');
 
-            // Update High Precision Stats
             document.getElementById(`${prefix}-earth`).innerText = formatHighPrecision(stats.precision.earth, 7);
             document.getElementById(`${prefix}-lunar`).innerText = formatHighPrecision(stats.precision.lunar, 8);
             document.getElementById(`${prefix}-sun`).innerText = formatHighPrecision(stats.precision.sun, 9);
         }
 
-        // Run the master loop 20 times a second (every 50ms)
+        // --- MASTER LOOP ---
+        // Runs 20 times a second to ensure numbers constantly blur
         setInterval(() => {
             const now = new Date();
             
-            // 1. Update the Demise Counter (Total deaths since Hanna's Birthday: May 5, 1998)
-            const msSinceEarliestBday = now.getTime() - hannaBday.getTime();
-            const totalDeadMen = msSinceEarliestBday * DEATHS_PER_MS;
-            
-            // Rendered with 4 decimal places so it constantly blurs
-            document.getElementById('demise-counter').innerText = formatHighPrecision(totalDeadMen, 4);
+            // Toggle Logic Updates
+            if (isCuteMode) {
+                const msSinceLoad = now.getTime() - pageLoadTime;
+                document.getElementById('cat-counter').innerText = formatHighPrecision(msSinceLoad * CATS_PER_MS, 4);
+                document.getElementById('bunny-counter').innerText = formatHighPrecision(msSinceLoad * BUNNIES_PER_MS, 4);
+            } else {
+                const msSinceEarliestBday = now.getTime() - hannaBday.getTime();
+                const totalDeadMen = msSinceEarliestBday * DEATHS_PER_MS;
+                document.getElementById('demise-counter').innerText = formatHighPrecision(totalDeadMen, 4);
+            }
 
-            // 2. Update Existence Meters
+            // Meter Updates
             const hannaStats = calculateStats(hannaBday);
             const hopeStats = calculateStats(hopeBday);
-
             updateDOM('hanna', hannaStats);
             updateDOM('hope', hopeStats);
         }, 50);
