@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Spirit Journey Formation Anniversary!</title>
+    <style>
+        /* 90s GEOCITIES AESTHETIC - AGGRESSIVELY PINK */
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ff69b4; /* Hot Pink */
+            background-image: 
+                linear-gradient(45deg, #ff1493 25%, transparent 25%, transparent 75%, #ff1493 75%, #ff1493), 
+                linear-gradient(45deg, #ff1493 25%, transparent 25%, transparent 75%, #ff1493 75%, #ff1493);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            cursor: crosshair;
+            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+        }
+
+        /* Responsive Static Title Banner */
+        .main-banner {
+            background-color: #ff00ff; /* Magenta */
+            color: #00ffff; /* Cyan */
+            font-size: clamp(0.6rem, 2.5vw, 3rem); 
+            font-weight: bold;
+            font-family: 'VT323', monospace;
+            padding: 15px clamp(2px, 1vw, 10px);
+            border-top: 5px ridge #ffff00;
+            border-bottom: 5px ridge #ffff00;
+            text-shadow: 2px 2px #000;
+            margin-bottom: 20px;
+            letter-spacing: clamp(0px, 0.2vw, 2px); 
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        /* Morbid Counter Section */
+        .counter-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            background: #000;
+            border: 4px dotted #00ff00;
+            width: fit-content;
+            max-width: 95vw;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px clamp(10px, 3vw, 25px);
+        }
+
+        .death-counter {
+            font-family: 'VT323', monospace;
+            font-size: clamp(2rem, 8vw, 4rem); 
+            color: #00ff00;
+            letter-spacing: 2px;
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .counter-bottom-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(5px, 2vw, 15px);
+        }
+
+        .counter-header {
+            font-family: 'VT323', monospace;
+            color: #ff00ff;
+            font-size: clamp(1rem, 4vw, 1.8rem);
+            text-transform: uppercase;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .sword {
+            font-size: clamp(1.2rem, 5vw, 2.5rem);
+            display: inline-block;
+            filter: drop-shadow(2px 2px 0px #ff00ff);
+        }
+
+        .sword-ccw {
+            animation: spin-ccw 0.4s linear infinite;
+        }
+
+        .sword-cw {
+            animation: spin-cw 0.4s linear infinite;
+        }
+
+        @keyframes spin-cw {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-ccw {
+            100% { transform: rotate(-360deg); }
+        }
+
+        /* Layout: Meters and Center Elements */
+        .content-layout {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch; /* Helps keep visual balance */
+            gap: 20px;
+            padding: clamp(5px, 2vw, 20px);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Center Column for GIF and Activation Code */
+        .center-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            max-width: clamp(200px, 80vw, 350px);
+        }
+
+        .center-gif {
+            border: 5px dashed #00ffff;
+            background-color: #fff;
+            padding: 5px;
+            width: 100%;
+        }
+
+        /* Activation Code Module */
+        .activation-container {
+            background: #000;
+            border: 4px inset #ffff00;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+	    box-shadow: 5px 5px 0px #00ffff;
+        }
+
+        .activation-header {
+            color: #ff00ff;
+            font-family: 'VT323', monospace;
+            font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+            margin-bottom: 8px;
+            text-shadow: 1px 1px #000;
+            line-height: 1.1;
+        }
+
+        .activation-code {
+            background: #fff;
+            color: #ff0000;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: bold;
+            padding: 8px 5px;
+            border: 2px solid #ff1493;
+            cursor: pointer;
+            user-select: all; /* Instantly highlights text on click/tap */
+            -webkit-user-select: all;
+            transition: background 0.1s, color 0.1s;
+        }
+
+        .activation-code:active {
+            background: #ff1493;
+            color: #fff;
+        }
+
+        .copy-hint {
+            font-family: 'VT323', monospace;
+            font-size: 1rem;
+            color: #00ff00;
+            margin-top: 5px;
+            animation: blink 1s step-start infinite;
+        }
+
+        /* Space-Time Meters */
+        .meter-box {
+            background-color: #ffb6c1; /* Light Pink */
+            border: 6px outset #ff1493;
+            padding: clamp(10px, 2vw, 20px);
+            width: 450px;
+            max-width: 100%;
+            color: #000;
+        }
+
+        /* Center-aligned Title with Flanking Stars */
+        .meter-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: clamp(2px, 1vw, 10px);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .meter-title-container h2 {
+            font-family: 'VT323', monospace;
+            font-size: clamp(0.75rem, 4vw, 2.2rem); 
+            color: #ff1493;
+            text-shadow: 1px 1px #fff;
+            margin: 0;
+            text-align: center;
+            line-height: 1;
+            white-space: nowrap; 
+        }
+
+        .twinkle-stars {
+            font-size: clamp(0.8rem, 3vw, 1.5rem);
+            animation: twinkle 0.6s alternate infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Main Timer Typography */
+        .main-timer {
+            font-size: clamp(0.6rem, 3.2vw, 1.2rem); 
+            font-weight: bold;
+            background: #fff;
+            border: 2px solid #ff1493;
+            padding: 10px 5px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        /* Row containers to lock layout */
+        .timer-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .time-unit {
+            display: inline-block;
+            margin: 0 clamp(2px, 1vw, 4px);
+        }
+
+        .main-timer span.num {
+            color: #ff0000;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Sub Stats High Precision */
+        .sub-stats {
+            background: #000;
+            color: #00ff00;
+            font-family: 'VT323', monospace;
+            font-size: clamp(0.8rem, 3.5vw, 1.4rem);
+            padding: clamp(8px, 2vw, 15px);
+            border: 3px inset #fff;
+            text-align: left;
+        }
+
+        .sub-stats div {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .high-precision-num {
+            display: inline-block;
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+            min-width: clamp(100px, 30vw, 180px); /* Keeps the blur stable on mobile */
+            color: #ffff00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-banner">
+        🎉✨💕 HAPPY SPIRIT JOURNEY FORMATION ANNIVERSARY! 💕✨🎉
+    </div>
+
+    <div class="counter-section">
+        <div class="death-counter" id="demise-counter">0.0000</div>
+        <div class="counter-bottom-row">
+            <div class="sword sword-ccw">🗡️</div>
+            <div class="counter-header">DEAD MEN</div>
+            <div class="sword sword-cw">🗡️</div>
+        </div>
+    </div>
+
+    <div class="content-layout">
+        
+        <div class="meter-box">
+            <div class="meter-title-container">
+                <span class="twinkle-stars">✨★</span>
+                <h2>Hanna's Space-Time Existence</h2>
+                <span class="twinkle-stars">★✨</span>
+            </div>
+            <div class="main-timer">
+                <div class="timer-row">
+                    <span class="time-unit"><span class="num" id="hanna-y">00</span>-Years</span>
+                    <span class="time-unit"><span class="num" id="hanna-mo">00</span>-Months</span>
+                    <span class="time-unit"><span class="num" id="hanna-w">00</span>-Weeks</span>
+                    <span class="time-unit"><span class="num" id="hanna-d">00</span>-Days</span>
+                </div>
+                <div class="timer-row">
+                    <span class="time-unit"><span class="num" id="hanna-h">00</span>-hrs</span>
+                    <span class="time-unit"><span class="num" id="hanna-m">00</span>-min</span>
+                    <span class="time-unit"><span class="num" id="hanna-s">00</span>-sec</span>
+                </div>
+            </div>
+            <div class="sub-stats">
+                <div>Earth Rotations: <span class="high-precision-num" id="hanna-earth">0.0000000</span></div>
+                <div>Lunar Cycles: <span class="high-precision-num" id="hanna-lunar">0.00000000</span></div>
+                <div>Sun Revolutions: <span class="high-precision-num" id="hanna-sun">0.000000000</span></div>
+            </div>
+        </div>
+
+        <div class="center-column">
+            <div class="activation-container">
+                <div class="activation-header">Non-Crystalline Solid Fusion<br>Activation Code</div>
+                <div class="activation-code" onclick="copyCode()" title="Click to copy">FG37 8H76 7274 934B</div>
+                <div class="copy-hint" id="copy-hint">[ CLICK CODE TO COPY ]</div>
+            </div>
+        </div>
+
+        <div class="meter-box">
+            <div class="meter-title-container">
+                <span class="twinkle-stars">✨★</span>
+                <h2>Hope's Space-Time Existence</h2>
+                <span class="twinkle-stars">★✨</span>
+            </div>
+            <div class="main-timer">
+                <div class="timer-row">
+                    <span class="time-unit"><span class="num" id="hope-y">00</span>-Years</span>
+                    <span class="time-unit"><span class="num" id="hope-mo">00</span>-Months</span>
+                    <span class="time-unit"><span class="num" id="hope-w">00</span>-Weeks</span>
+                    <span class="time-unit"><span class="num" id="hope-d">00</span>-Days</span>
+                </div>
+                <div class="timer-row">
+                    <span class="time-unit"><span class="num" id="hope-h">00</span>-hrs</span>
+                    <span class="time-unit"><span class="num" id="hope-m">00</span>-min</span>
+                    <span class="time-unit"><span class="num" id="hope-s">00</span>-sec</span>
+                </div>
+            </div>
+            <div class="sub-stats">
+                <div>Earth Rotations: <span class="high-precision-num" id="hope-earth">0.0000000</span></div>
+                <div>Lunar Cycles: <span class="high-precision-num" id="hope-lunar">0.00000000</span></div>
+                <div>Sun Revolutions: <span class="high-precision-num" id="hope-sun">0.000000000</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Constants for Calculations
+        const LUNAR_CYCLE_DAYS = 29.53059;
+        const SUN_REVOLUTION_DAYS = 365.24219;
+        const MS_PER_DAY = 1000 * 60 * 60 * 24;
+        
+        // Approx 26.5 million adult male deaths annually globally
+        const ANNUAL_ADULT_MALE_DEATHS = 26500000; 
+        const DEATHS_PER_MS = ANNUAL_ADULT_MALE_DEATHS / (SUN_REVOLUTION_DAYS * MS_PER_DAY);
+
+        // Birthdates (Months are 0-indexed in JS, so 4 = May)
+        // Hanna's birthday is the earliest, used for the Dead Men counter
+        const hannaBday = new Date(1998, 4, 5, 0, 0, 0);
+        const hopeBday = new Date(1999, 4, 16, 0, 0, 0);
+
+        // Clipboard Copy & Open Link Function
+        function copyCode() {
+            const codeText = "FG37 8H76 7274 934B";
+            const targetUrl = "https://www.meltglass.com/collections/classes/products/pick-a-project-fusing-class";
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const hint = document.getElementById('copy-hint');
+                hint.innerText = "*** COPIED! ***";
+                hint.style.color = "#ffff00"; // Yellow flash
+                hint.style.animation = "none"; // Stop blinking briefly
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    hint.innerText = "[ CLICK CODE TO COPY ]";
+                    hint.style.color = "#00ff00";
+                    hint.style.animation = "blink 1s step-start infinite";
+                }, 2000);
+
+                // Open the link in a new tab
+                window.open(targetUrl, '_blank');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                // Fallback attempt to open window even if clipboard fails
+                window.open(targetUrl, '_blank');
+            });
+        }
+
+        // Formats a number with commas and fixed decimal places
+        function formatHighPrecision(number, decimals) {
+            const parts = number.toFixed(decimals).split('.');
+            const wholePart = parseInt(parts[0], 10).toLocaleString('en-US');
+            return `${wholePart}.${parts[1]}`;
+        }
+
+        // Calculate and return all age statistics
+        function calculateStats(birthDate) {
+            const now = new Date();
+
+            // Main Timer exact time breakdowns
+            let years = now.getFullYear() - birthDate.getFullYear();
+            let months = now.getMonth() - birthDate.getMonth();
+            let days = now.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            const weeks = Math.floor(days / 7);
+            const remainingDays = days % 7;
+
+            // High Precision Stats (based on total milliseconds alive)
+            const totalMsExact = now.getTime() - birthDate.getTime() + now.getMilliseconds();
+            const exactDaysAlive = totalMsExact / MS_PER_DAY;
+
+            return {
+                main: {
+                    years: years,
+                    months: months,
+                    weeks: weeks,
+                    days: remainingDays,
+                    hours: now.getHours(),
+                    minutes: now.getMinutes(),
+                    seconds: now.getSeconds()
+                },
+                precision: {
+                    earth: exactDaysAlive,
+                    lunar: exactDaysAlive / LUNAR_CYCLE_DAYS,
+                    sun: exactDaysAlive / SUN_REVOLUTION_DAYS
+                }
+            };
+        }
+
+        // Update DOM elements for a specific person
+        function updateDOM(prefix, stats) {
+            // Update Main Timer (pad single digits with 0)
+            document.getElementById(`${prefix}-y`).innerText = stats.main.years;
+            document.getElementById(`${prefix}-mo`).innerText = stats.main.months;
+            document.getElementById(`${prefix}-w`).innerText = stats.main.weeks;
+            document.getElementById(`${prefix}-d`).innerText = stats.main.days;
+            
+            document.getElementById(`${prefix}-h`).innerText = String(stats.main.hours).padStart(2, '0');
+            document.getElementById(`${prefix}-m`).innerText = String(stats.main.minutes).padStart(2, '0');
+            document.getElementById(`${prefix}-s`).innerText = String(stats.main.seconds).padStart(2, '0');
+
+            // Update High Precision Stats
+            document.getElementById(`${prefix}-earth`).innerText = formatHighPrecision(stats.precision.earth, 7);
+            document.getElementById(`${prefix}-lunar`).innerText = formatHighPrecision(stats.precision.lunar, 8);
+            document.getElementById(`${prefix}-sun`).innerText = formatHighPrecision(stats.precision.sun, 9);
+        }
+
+        // Run the master loop 20 times a second (every 50ms)
+        setInterval(() => {
+            const now = new Date();
+            
+            // 1. Update the Demise Counter (Total deaths since Hanna's Birthday: May 5, 1998)
+            const msSinceEarliestBday = now.getTime() - hannaBday.getTime();
+            const totalDeadMen = msSinceEarliestBday * DEATHS_PER_MS;
+            
+            // Rendered with 4 decimal places so it constantly blurs
+            document.getElementById('demise-counter').innerText = formatHighPrecision(totalDeadMen, 4);
+
+            // 2. Update Existence Meters
+            const hannaStats = calculateStats(hannaBday);
+            const hopeStats = calculateStats(hopeBday);
+
+            updateDOM('hanna', hannaStats);
+            updateDOM('hope', hopeStats);
+        }, 50);
+
+    </script>
+</body>
+</html>
