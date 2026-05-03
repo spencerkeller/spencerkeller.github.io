@@ -28,21 +28,22 @@
             overflow-x: hidden; /* Prevents horizontal scroll on mobile */
         }
 
-        /* Responsive Static Title Banner */
+        /* Responsive Title Banner - Adjusted for Mobile Wrapping */
         .main-banner {
             background-color: #ff00ff; /* Magenta */
             color: #00ffff; /* Cyan */
-            font-size: clamp(0.6rem, 2.5vw, 3rem); 
+            font-size: clamp(1.5rem, 6vw, 3rem); 
             font-weight: bold;
             font-family: 'VT323', monospace;
-            padding: 15px clamp(2px, 1vw, 10px);
+            padding: 15px clamp(5px, 2vw, 10px);
             border-top: 5px ridge #ffff00;
             border-bottom: 5px ridge #ffff00;
             text-shadow: 2px 2px #000;
             margin-bottom: 20px;
             letter-spacing: clamp(0px, 0.2vw, 2px); 
             line-height: 1.2;
-            white-space: nowrap;
+            white-space: normal;
+            word-wrap: break-word;
         }
 
         /* Morbid Counter Section */
@@ -62,7 +63,7 @@
 
         .death-counter {
             font-family: 'VT323', monospace;
-            font-size: clamp(2rem, 8vw, 4rem); 
+            font-size: clamp(3rem, 12vw, 5rem); 
             color: #00ff00;
             letter-spacing: 2px;
             font-variant-numeric: tabular-nums;
@@ -76,19 +77,19 @@
             justify-content: center;
             align-items: center;
             gap: clamp(5px, 2vw, 15px);
+            flex-wrap: wrap;
         }
 
         .counter-header {
             font-family: 'VT323', monospace;
             color: #ff00ff;
-            font-size: clamp(1rem, 4vw, 1.8rem);
+            font-size: clamp(1.5rem, 6vw, 1.8rem);
             text-transform: uppercase;
             line-height: 1;
-            white-space: nowrap;
         }
 
         .sword {
-            font-size: clamp(1.2rem, 5vw, 2.5rem);
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
             display: inline-block;
             filter: drop-shadow(2px 2px 0px #ff00ff);
         }
@@ -109,15 +110,14 @@
             100% { transform: rotate(-360deg); }
         }
 
-        /* Layout: Meters and Center Elements */
+        /* Layout: Stacked vertically for mobile by default */
         .content-layout {
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch; /* Helps keep visual balance */
-            gap: 20px;
-            padding: clamp(5px, 2vw, 20px);
+            flex-direction: column;
+            align-items: center; 
+            gap: 25px;
+            padding: clamp(10px, 3vw, 20px);
+            width: 100%;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -130,7 +130,7 @@
             justify-content: center;
             gap: 15px;
             width: 100%;
-            max-width: clamp(200px, 80vw, 350px);
+            max-width: clamp(280px, 90vw, 450px);
         }
 
         .center-gif {
@@ -144,17 +144,17 @@
         .activation-container {
             background: #000;
             border: 4px inset #ffff00;
-            padding: 10px;
+            padding: 15px 10px;
             width: 100%;
             text-align: center;
-	    box-shadow: 5px 5px 0px #00ffff;
+            box-shadow: 5px 5px 0px #00ffff;
         }
 
         .activation-header {
             color: #ff00ff;
             font-family: 'VT323', monospace;
-            font-size: clamp(1.1rem, 3.5vw, 1.4rem);
-            margin-bottom: 8px;
+            font-size: clamp(1.4rem, 5vw, 1.6rem);
+            margin-bottom: 12px;
             text-shadow: 1px 1px #000;
             line-height: 1.1;
         }
@@ -162,12 +162,12 @@
         .activation-code {
             background: #fff;
             color: #ff0000;
-            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-size: clamp(1.5rem, 6vw, 2rem);
             font-weight: bold;
-            padding: 8px 5px;
+            padding: 12px 5px;
             border: 2px solid #ff1493;
             cursor: pointer;
-            user-select: all; /* Instantly highlights text on click/tap */
+            user-select: all; 
             -webkit-user-select: all;
             transition: background 0.1s, color 0.1s;
         }
@@ -179,9 +179,9 @@
 
         .copy-hint {
             font-family: 'VT323', monospace;
-            font-size: 1rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
             color: #00ff00;
-            margin-top: 5px;
+            margin-top: 10px;
             animation: blink 1s step-start infinite;
         }
 
@@ -189,9 +189,9 @@
         .meter-box {
             background-color: #ffb6c1; /* Light Pink */
             border: 6px outset #ff1493;
-            padding: clamp(10px, 2vw, 20px);
-            width: 450px;
-            max-width: 100%;
+            padding: clamp(15px, 4vw, 20px);
+            width: 100%;
+            max-width: 450px;
             color: #000;
         }
 
@@ -201,24 +201,23 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 15px;
-            gap: clamp(2px, 1vw, 10px);
+            gap: clamp(5px, 2vw, 10px);
             width: 100%;
-            overflow: hidden;
         }
 
         .meter-title-container h2 {
             font-family: 'VT323', monospace;
-            font-size: clamp(0.75rem, 4vw, 2.2rem); 
+            font-size: clamp(1.4rem, 6vw, 2.2rem); 
             color: #ff1493;
             text-shadow: 1px 1px #fff;
             margin: 0;
             text-align: center;
-            line-height: 1;
-            white-space: nowrap; 
+            line-height: 1.1;
+            white-space: normal; 
         }
 
         .twinkle-stars {
-            font-size: clamp(0.8rem, 3vw, 1.5rem);
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
             animation: twinkle 0.6s alternate infinite;
             white-space: nowrap;
         }
@@ -234,28 +233,28 @@
 
         /* Main Timer Typography */
         .main-timer {
-            font-size: clamp(0.6rem, 3.2vw, 1.2rem); 
+            font-size: clamp(0.9rem, 4vw, 1.2rem); 
             font-weight: bold;
             background: #fff;
             border: 2px solid #ff1493;
-            padding: 10px 5px;
+            padding: 15px 5px;
             margin-bottom: 15px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 8px;
         }
 
-        /* Row containers to lock layout */
+        /* Row containers allowing wrap for extremely thin screens */
         .timer-row {
             display: flex;
             justify-content: center;
             align-items: center;
-            white-space: nowrap;
+            flex-wrap: wrap; 
         }
 
         .time-unit {
             display: inline-block;
-            margin: 0 clamp(2px, 1vw, 4px);
+            margin: 2px clamp(2px, 1.5vw, 6px);
         }
 
         .main-timer span.num {
@@ -268,26 +267,35 @@
             background: #000;
             color: #00ff00;
             font-family: 'VT323', monospace;
-            font-size: clamp(0.8rem, 3.5vw, 1.4rem);
-            padding: clamp(8px, 2vw, 15px);
+            font-size: clamp(1rem, 4.5vw, 1.4rem);
+            padding: clamp(10px, 3vw, 15px);
             border: 3px inset #fff;
             text-align: left;
         }
 
         .sub-stats div {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            white-space: nowrap;
+            flex-wrap: wrap; /* Safety wrap */
         }
 
         .high-precision-num {
             display: inline-block;
             font-variant-numeric: tabular-nums;
             text-align: right;
-            min-width: clamp(100px, 30vw, 180px); /* Keeps the blur stable on mobile */
+            min-width: clamp(120px, 35vw, 180px); 
             color: #ffff00;
+        }
+        
+        /* Media query strictly for desktop visual breathing room, keeps core mobile logic intact */
+        @media (min-width: 1000px) {
+            .content-layout {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+            }
         }
     </style>
 </head>
@@ -381,7 +389,6 @@
         const DEATHS_PER_MS = ANNUAL_ADULT_MALE_DEATHS / (SUN_REVOLUTION_DAYS * MS_PER_DAY);
 
         // Birthdates (Months are 0-indexed in JS, so 4 = May)
-        // Hanna's birthday is the earliest, used for the Dead Men counter
         const hannaBday = new Date(1998, 4, 5, 0, 0, 0);
         const hopeBday = new Date(1999, 4, 16, 0, 0, 0);
 
