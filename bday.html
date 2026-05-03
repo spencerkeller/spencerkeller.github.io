@@ -133,13 +133,6 @@
             max-width: clamp(280px, 90vw, 450px);
         }
 
-        .center-gif {
-            border: 5px dashed #00ffff;
-            background-color: #fff;
-            padding: 5px;
-            width: 100%;
-        }
-
         /* Activation Code Module */
         .activation-container {
             background: #000;
@@ -233,7 +226,7 @@
 
         /* Main Timer Typography */
         .main-timer {
-            font-size: clamp(0.75rem, 3.5vw, 1.2rem); /* Minimized font size to ensure fit on narrow mobile screens */
+            font-size: clamp(0.75rem, 3.5vw, 1.2rem); 
             font-weight: bold;
             background: #fff;
             border: 2px solid #ff1493;
@@ -249,13 +242,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: nowrap; /* Forces content to stay on one row */
-            white-space: nowrap; /* Prevents text breaking within the span */
+            flex-wrap: nowrap; 
+            white-space: nowrap; 
         }
 
         .time-unit {
             display: inline-block;
-            margin: 2px clamp(1px, 1.5vw, 6px); /* Scaled down inner margin */
+            margin: 2px clamp(1px, 1.5vw, 6px);
         }
 
         .main-timer span.num {
@@ -279,7 +272,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Safety wrap */
+            flex-wrap: wrap; 
         }
 
         .high-precision-num {
@@ -290,7 +283,7 @@
             color: #ffff00;
         }
         
-        /* Media query strictly for desktop visual breathing room, keeps core mobile logic intact */
+        /* Media query strictly for desktop visual breathing room */
         @media (min-width: 1000px) {
             .content-layout {
                 flex-direction: row;
@@ -302,8 +295,12 @@
 </head>
 <body>
 
+    <audio id="bg-music" loop>
+        <source src="Questination.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="main-banner">
-        HAPPY SPIRIT JOURNEY<br>✨FORMATION ANNIVERSARY✨
+        🎉✨💕 HAPPY SPIRIT JOURNEY FORMATION ANNIVERSARY! 💕✨🎉
     </div>
 
     <div class="counter-section">
@@ -347,7 +344,7 @@
             <div class="activation-container">
                 <div class="activation-header">Non-Crystalline Solid Fusion<br>Activation Code</div>
                 <div class="activation-code" onclick="copyCode()" title="Click to copy">FG37 8H76 7274 934B</div>
-                <div class="copy-hint" id="copy-hint">[ CLICK CODE TO BEGIN NON-CRYSTALLINE SOLID FUSION ]</div>
+                <div class="copy-hint" id="copy-hint">[ CLICK CODE TO COPY ]</div>
             </div>
         </div>
 
@@ -380,6 +377,18 @@
     </div>
 
     <script>
+        // --- NEW AUDIO AUTOPLAY WORKAROUND ---
+        // Listens for the very first time the user taps or clicks anywhere on the page
+        document.body.addEventListener('click', function() {
+            const bgMusic = document.getElementById('bg-music');
+            if (bgMusic.paused) {
+                bgMusic.play().catch(error => {
+                    console.log("Audio playback failed:", error);
+                });
+            }
+        }, { once: true }); // 'once: true' ensures this event listener removes itself after firing once
+
+
         // Constants for Calculations
         const LUNAR_CYCLE_DAYS = 29.53059;
         const SUN_REVOLUTION_DAYS = 365.24219;
