@@ -233,7 +233,7 @@
 
         /* Main Timer Typography */
         .main-timer {
-            font-size: clamp(0.9rem, 4vw, 1.2rem); 
+            font-size: clamp(0.75rem, 3.5vw, 1.2rem); /* Minimized font size to ensure fit on narrow mobile screens */
             font-weight: bold;
             background: #fff;
             border: 2px solid #ff1493;
@@ -244,17 +244,18 @@
             gap: 8px;
         }
 
-        /* Row containers allowing wrap for extremely thin screens */
+        /* Row containers locked to single line */
         .timer-row {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap; 
+            flex-wrap: nowrap; /* Forces content to stay on one row */
+            white-space: nowrap; /* Prevents text breaking within the span */
         }
 
         .time-unit {
             display: inline-block;
-            margin: 2px clamp(2px, 1.5vw, 6px);
+            margin: 2px clamp(1px, 1.5vw, 6px); /* Scaled down inner margin */
         }
 
         .main-timer span.num {
@@ -302,7 +303,7 @@
 <body>
 
     <div class="main-banner">
-        🎉✨💕 HAPPY SPIRIT JOURNEY FORMATION ANNIVERSARY! 💕✨🎉
+        HAPPY SPIRIT JOURNEY<br>✨FORMATION ANNIVERSARY✨
     </div>
 
     <div class="counter-section">
